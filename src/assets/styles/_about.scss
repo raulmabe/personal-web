@@ -1,0 +1,15 @@
+$height-img-perfil: 12rem;
+
+.img-perfil {
+  position: relative;
+  margin: auto;
+  overflow: hidden;
+  height: $height-img-perfil;
+  border-radius: 50%;
+}
+
+.img-perfil img {
+  display: block;
+  height: $height-img-perfil;
+  transform: scale(1.2);
+}
