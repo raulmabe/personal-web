@@ -4,11 +4,10 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import NavbarWithRouter from "./components/Navbar";
 import { Layout } from "./components/Layout";
 import Home from "./pages/Home";
-// @ts-ignore
-import Projects from "./pages/Projects.jsx";
 import About from "./pages/About";
 // @ts-ignore
 import Contact from "./pages/Contact.jsx";
+import ProjectsContainer from "./components/containers/ProjectsContainer";
 
 function App() {
   return (
@@ -18,7 +17,7 @@ function App() {
         <Layout>
           <Switch>
             <Route exact path="/" component={Home} />
-            <Route path="/projects" component={Projects} />
+            <Route path="/projects" component={ProjectsContainer} />
             <Route path="/about" component={About} />
             <Route path="/contact" component={Contact} />
           </Switch>

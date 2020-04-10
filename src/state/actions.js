@@ -1,37 +1,4 @@
-import axios from "axios";
-
-const GET_PUBLIC_REPOSITORIES = `
-  query {
-    viewer {
-      repositories(
-        last: 100
-        orderBy: { field: CREATED_AT, direction: DESC }
-        privacy: PUBLIC
-      ) {
-        nodes {
-          id
-          name
-          descriptionHTML
-          createdAt
-          url
-          readme: object(expression: "master:README.md") {
-            ... on Blob {
-              text
-            }
-          }
-        }
-      }
-    }
-  }
-`;
-
-const axiosGithubGraphQL = axios.create({
-  baseURL: "https://api.github.com/graphql",
-  headers: {
-    Authorization: `Bearer ${process.env.REACT_APP_GITHUB_PERSONAL_ACCESS_TOKEN}`,
-  },
-});
-
+// Projects
 export const GET_PROJECTS = "GET_PROJECTS";
 export function getProjects() {
   return {
@@ -40,7 +7,7 @@ export function getProjects() {
 }
 
 export const GOT_PROJECTS = "GOT_PROJECTS";
-function gotProjects(projects) {
+export function gotProjects(projects) {
   return {
     type: GOT_PROJECTS,
     projects,
@@ -54,15 +21,17 @@ function failedGettingProjects() {
   };
 }
 
-// Thunk middleware
-export function fetchProjects() {
-  return function (dispatch) {
-    dispatch(getProjects());
+// Stepper Projects
+export const NEXT_PROJECT = "NEXT_PROJECT";
+export function seeNextProject() {
+  return {
+    type: NEXT_PROJECT,
+  };
+}
 
-    return axiosGithubGraphQL
-      .post("", { query: GET_PUBLIC_REPOSITORIES })
-      .then((result) =>
-        dispatch(gotProjects(result.data.data.viewer.repositories.nodes))
-      );
+export const PREV_PROJECT = "PREV_PROJECT";
+export function seePreviousProject() {
+  return {
+    type: PREV_PROJECT,
   };
 }

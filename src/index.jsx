@@ -7,7 +7,17 @@ import { Provider } from "react-redux";
 import { reducer } from "./state/reducers";
 import thunkMiddleware from "redux-thunk";
 import logger from "redux-logger";
-import { fetchProjects } from "./state/actions";
+import { fetchProjects } from "./state/middleware";
+import { createMuiTheme, ThemeProvider } from "@material-ui/core/styles";
+
+const theme = createMuiTheme({
+  palette: {
+    type: "dark",
+    background: {
+      paper: "#1b262c",
+    },
+  },
+});
 
 const store = createStore(reducer, applyMiddleware(thunkMiddleware, logger));
 
@@ -16,7 +26,9 @@ store.dispatch(fetchProjects());
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
-      <App />
+      <ThemeProvider theme={theme}>
+        <App />
+      </ThemeProvider>
     </Provider>
   </React.StrictMode>,
   document.getElementById("root")
