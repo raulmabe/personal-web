@@ -1,0 +1,18 @@
+.mock-container {
+  overflow: visible;
+  border-radius: 50%;
+  height: 40vw;
+  width: 40vw;
+  max-width: 30rem;
+  max-height: 30rem;
+  background: linear-gradient(to left bottom, $blue, $second-blue);
+}
+
+.mock-container img {
+  display: block;
+  width: 60vw;
+  max-width: 40rem;
+  margin: auto;
+  margin-left: 50%;
+  transform: translateX(-50%);
+}

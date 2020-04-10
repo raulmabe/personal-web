@@ -1,8 +1,9 @@
 import React from "react";
 import RepositoryItem from "./RepositoryItem";
 
-function RepositoryList({ repositories }) {
-  return repositories.nodes.map((node) => (
+function RepositoryList({ projects }) {
+  console.log(projects);
+  return projects.map((node) => (
     <div key={node.id}>
       <div className="repository-container">
         <RepositoryItem {...node} />

@@ -8,7 +8,11 @@ class MyNavBar extends React.Component {
     return (
       <Navbar collapseOnSelect expand="sm" variant="dark" className="min-vh-15">
         <LinkContainer exact to="/">
-          <Navbar.Brand>R.MABE</Navbar.Brand>
+          <Navbar.Brand>
+            MA
+            <br />
+            BE
+          </Navbar.Brand>
         </LinkContainer>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse className="justify-content-end">

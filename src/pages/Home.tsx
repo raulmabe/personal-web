@@ -3,12 +3,13 @@ import { Row, Col, Button } from "react-bootstrap";
 import SocialMedia from "../components/SocialMedia";
 import DownloadCV from "../components/DownloadCV";
 import { LinkContainer } from "react-router-bootstrap";
+import Mock from "../components/Mock";
 
 function Home() {
   return (
     <Row className="flex-grow-1 align-items-end">
       {/* SIDE QUOTE AND BUTTONS */}
-      <Col className="order-1 order-md-1" xs="12" md="7">
+      <Col className="align-self-center order-1 order-md-1" xs="12" md="5">
         <Row className="align-center justify-content-center">
           <Col xs="9">
             <h3>
@@ -40,12 +41,8 @@ function Home() {
         </Row>
       </Col>
       {/* MockUP */}
-      <Col
-        className="align-self-center order-3 order-md-2 bg-info"
-        xs="12"
-        md="5"
-      >
-        Mock up
+      <Col className="align-self-center order-3 order-md-2" xs="12" md="7">
+        <Mock />
       </Col>
       <Col xs="12" className="order-2 order-md-3 mb-5">
         <SocialMedia />
