@@ -4,7 +4,8 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import NavbarWithRouter from "./components/Navbar";
 import { Layout } from "./components/Layout";
 import Home from "./pages/Home";
-import Projects from "./pages/Projects";
+// @ts-ignore
+import Projects from "./pages/Projects.jsx";
 import About from "./pages/About";
 // @ts-ignore
 import Contact from "./pages/Contact.jsx";
