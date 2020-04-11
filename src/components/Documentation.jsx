@@ -4,6 +4,8 @@ import marked from "marked";
 function Documentation({ readme }) {
   if (!readme) return null;
   var markdown = marked(readme);
+
+  // Quitar el primer h1
   return (
     <div
       className="readme-box"

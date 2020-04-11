@@ -1,41 +1,91 @@
-import React from "react";
+import React, { useState } from "react";
 import Documentation from "./Documentation";
-import { Row, Col } from "react-bootstrap";
+import { Row, Col, Collapse, Button } from "react-bootstrap";
 import Mock from "./Mock";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faGithubAlt } from "@fortawesome/free-brands-svg-icons";
 
-function RepositoryItem({ name, descriptionHTML, createdAt, url, readme }) {
+function RepositoryItem({
+  name,
+  descriptionHTML,
+  createdAt,
+  url,
+  readme,
+  mabe,
+}) {
+  const [open, setOpen] = useState(false);
+
+  const isFromGithub = url != null && url.includes("github");
+  const readmeExists = readme != null && readme.length > 0;
+
   return (
     <div>
       <Row className="justify-content-between align-items-center">
-        <Col xs="8">
-          <div class="jumbotron">
-            <h1 class="display-4">Hello, world!</h1>
-            <p class="lead">
-              This is a simple hero unit, a simple jumbotron-style component for
-              calling extra attention to featured content or information.
-            </p>
-            <hr class="my-4" />
-            <p>
-              It uses utility classes for typography and spacing to space
-              content out within the larger container.
-            </p>
-            <a class="btn btn-primary btn-lg" href="#" role="button">
-              Learn more
-            </a>
+        <Col xs="12" lg="8">
+          <div className="jumbotron">
+            <h1 className="display-4">{mabe == null ? name : mabe.title} </h1>
+            <p
+              className="lead"
+              dangerouslySetInnerHTML={{ __html: descriptionHTML }}
+            ></p>
+            <div className="d-block d-lg-none">
+              <Mock size="sm" />
+            </div>
+            {isFromGithub && (
+              <div>
+                <hr className="my-4" />
+                <Collapse in={!open} className="mb-5">
+                  <div id="example-collapse-text">
+                    <p>
+                      If you are interested in this project, or just want to
+                      show appreciation for my work, consider starring the
+                      repository on Github!
+                    </p>
+                  </div>
+                </Collapse>
+              </div>
+            )}
+
+            <Row className="justify-content-center">
+              {readmeExists && (
+                <Col xs="12" md="auto" className="text-center my-1 my-md-0">
+                  <div>
+                    <Button
+                      onClick={() => setOpen(!open)}
+                      aria-controls="example-collapse-text"
+                      aria-expanded={open}
+                    >
+                      {open ? "See less" : "See more"}
+                    </Button>
+                  </div>
+                </Col>
+              )}
+              {isFromGithub && readmeExists && (
+                <Col xs="12" md="auto" className="text-center my-1 my-md-0">
+                  <i>- or -</i>
+                </Col>
+              )}
+              {isFromGithub && (
+                <Col xs="12" md="auto" className="text-center my-1 my-md-0">
+                  <a href={url} className="btn btn-outline-light">
+                    Check on <FontAwesomeIcon icon={faGithubAlt} />
+                  </a>
+                </Col>
+              )}
+            </Row>
+            {readmeExists && (
+              <Collapse in={open} className="mt-3">
+                <div id="example-collapse-text">
+                  <Documentation readme={readme} />
+                </div>
+              </Collapse>
+            )}
           </div>
         </Col>
-        <Col xs="4">
+        <Col lg="4" className="d-none d-lg-block">
           <Mock size="sm" />
         </Col>
       </Row>
-      {/*       
-      <h1>
-        <a href={url}>{name}</a>
-      </h1>
-      <div dangerouslySetInnerHTML={{ __html: descriptionHTML }} />
-      {readme != null && readme.text.length > 0 && (
-        <Documentation readme={readme.text} />
-      )} */}
     </div>
   );
 }

@@ -20,14 +20,14 @@
     overflow: visible;
     border-radius: 50%;
     background: linear-gradient(to left bottom, $blue, $second-blue);
-    height: 20vw;
-    width: 20vw;
-    max-width: 15rem;
-    max-height: 15rem;
+    height: 30vw;
+    width: 30vw;
+    max-width: 20rem;
+    max-height: 20rem;
 
     & img {
-      width: 30vw;
-      max-width: 20rem;
+      width: 35vw;
+      max-width: 30rem;
       display: block;
       margin: auto;
       margin-left: 50%;

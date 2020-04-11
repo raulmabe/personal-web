@@ -20,9 +20,6 @@ class MyNavBar extends React.Component {
             <LinkContainer to="/projects">
               <Nav.Link active={false}>{"projects".toUpperCase()}</Nav.Link>
             </LinkContainer>
-            <LinkContainer to="/skills">
-              <Nav.Link active={false}>{"skills".toUpperCase()}</Nav.Link>
-            </LinkContainer>
             <LinkContainer to="/about">
               <Nav.Link active={false}>{"about me".toUpperCase()}</Nav.Link>
             </LinkContainer>

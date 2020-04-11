@@ -9,7 +9,7 @@ function Home() {
   return (
     <Row className="flex-grow-1 align-items-end">
       {/* SIDE QUOTE AND BUTTONS */}
-      <Col className="align-self-center order-1 order-md-1" xs="12" md="5">
+      <Col className="align-self-center " xs="12" lg="6">
         <Row className="align-center justify-content-center">
           <Col xs="9">
             <h3>
@@ -24,16 +24,18 @@ function Home() {
             <h4>{`- unsigned`}</h4>
           </Col>
         </Row>
-        <Row className="mt-5 pt-5 justify-content-center">
-          <Col xs="auto">
-            <span className="mx-3">
-              <LinkContainer to="/about">
-                <Button variant="outline-secondary">
-                  {"learn about me".toUpperCase()}
-                </Button>
-              </LinkContainer>
-            </span>
+        <Row className="mt-lg-5 pt-5 justify-content-center">
+          <Col xs="12" lg="auto" className="text-center mt-2 my-lg-0">
+            <LinkContainer to="/about">
+              <Button variant="outline-secondary">
+                {"learn about me".toUpperCase()}
+              </Button>
+            </LinkContainer>
+          </Col>
+          <Col xs="12" lg="auto" className="text-center my-1 my-lg-0">
             <i>- or -</i>
+          </Col>
+          <Col xs="12" lg="auto" className="text-center mb-5 my-lg-0">
             <span className="mx-3">
               <DownloadCV />
             </span>
@@ -41,10 +43,10 @@ function Home() {
         </Row>
       </Col>
       {/* MockUP */}
-      <Col className="align-self-center order-3 order-md-2" xs="12" md="7">
+      <Col className="align-self-center " xs="12" lg="6">
         <Mock size="lg" />
       </Col>
-      <Col xs="12" className="order-2 order-md-3 mb-5">
+      <Col xs="12" className="my-5">
         <SocialMedia />
       </Col>
     </Row>

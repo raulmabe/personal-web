@@ -1,4 +1,4 @@
-# Personal web for my protfolio
+# Personal web for my portfolio
 
 I decided to develop my portfolio website. There I show you some personal projects from the Github API v4 GraphQL.
 

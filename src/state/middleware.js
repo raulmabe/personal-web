@@ -15,7 +15,15 @@ const GET_PUBLIC_REPOSITORIES = `
           descriptionHTML
           createdAt
           url
+          stargazers{
+            totalCount
+          }
           readme: object(expression: "master:README.md") {
+            ... on Blob {
+              text
+            }
+          }
+          mabe: object(expression: "master:mabe.json") {
             ... on Blob {
               text
             }
@@ -40,8 +48,23 @@ export function fetchProjects() {
 
     return axiosGithubGraphQL
       .post("", { query: GET_PUBLIC_REPOSITORIES })
-      .then((result) =>
-        dispatch(gotProjects(result.data.data.viewer.repositories.nodes))
-      );
+      .then((result) => {
+        var projects = result.data.data.viewer.repositories.nodes;
+        projects.map((project) => {
+          project.stargazers = project.stargazers.totalCount;
+
+          if (project.readme != null) {
+            project.readme = project.readme.text;
+          }
+
+          if (project.mabe != null) {
+            project.mabe = JSON.parse(project.mabe.text);
+          }
+          return project;
+        });
+        return dispatch(
+          gotProjects(result.data.data.viewer.repositories.nodes)
+        );
+      });
   };
 }
