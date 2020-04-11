@@ -1,6 +1,10 @@
 import { connect } from "react-redux";
 import { fetchProjects } from "../../state/middleware";
-import { seeNextProject, seePreviousProject } from "../../state/actions";
+import {
+  seeNextProject,
+  seePreviousProject,
+  seeProject,
+} from "../../state/actions";
 import RepositoryList from "../ui/RepositoryList";
 
 const mapStateToProps = (state) => {
@@ -17,6 +21,9 @@ const mapDispatchToProps = (dispatch) => {
     },
     seePrevProject: () => {
       dispatch(seePreviousProject());
+    },
+    seeProject: (index) => {
+      dispatch(seeProject(index));
     },
   };
 };

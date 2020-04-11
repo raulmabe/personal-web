@@ -1,18 +1,37 @@
 .mock-container {
-  overflow: visible;
-  border-radius: 50%;
-  height: 40vw;
-  width: 40vw;
-  max-width: 30rem;
-  max-height: 30rem;
-  background: linear-gradient(to left bottom, $blue, $second-blue);
-}
+  &-lg {
+    overflow: visible;
+    border-radius: 50%;
+    background: linear-gradient(to left bottom, $blue, $second-blue);
+    height: 40vw;
+    width: 40vw;
+    max-width: 30rem;
+    max-height: 30rem;
+    & img {
+      width: 60vw;
+      max-width: 40rem;
+      display: block;
+      margin: auto;
+      margin-left: 50%;
+      transform: translateX(-50%);
+    }
+  }
+  &-sm {
+    overflow: visible;
+    border-radius: 50%;
+    background: linear-gradient(to left bottom, $blue, $second-blue);
+    height: 20vw;
+    width: 20vw;
+    max-width: 15rem;
+    max-height: 15rem;
 
-.mock-container img {
-  display: block;
-  width: 60vw;
-  max-width: 40rem;
-  margin: auto;
-  margin-left: 50%;
-  transform: translateX(-50%);
+    & img {
+      width: 30vw;
+      max-width: 20rem;
+      display: block;
+      margin: auto;
+      margin-left: 50%;
+      transform: translateX(-50%);
+    }
+  }
 }

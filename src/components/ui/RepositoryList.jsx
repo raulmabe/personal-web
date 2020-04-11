@@ -5,7 +5,9 @@ import { makeStyles, withStyles } from "@material-ui/core/styles";
 import clsx from "clsx";
 import StepConnector from "@material-ui/core/StepConnector";
 import { format } from "date-fns";
-import { Button, Row, Col } from "react-bootstrap";
+import { Row, Col } from "react-bootstrap";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faChevronDown, faChevronUp } from "@fortawesome/free-solid-svg-icons";
 
 const QontoConnector = withStyles({
   alternativeLabel: {
@@ -80,6 +82,7 @@ function RepositoryList({
   activeProject,
   seeNextProject,
   seePrevProject,
+  seeProject,
 }) {
   return (
     <Stepper
@@ -87,25 +90,34 @@ function RepositoryList({
       orientation="vertical"
       connector={<QontoConnector />}
     >
-      {projects.map((repo) => (
+      {projects.map((repo, index) => (
         <Step key={repo.id}>
-          <StepLabel StepIconComponent={QontoStepIcon}>
-            {format(Date.parse(repo.createdAt), "MMMM yyyy")}
+          <StepLabel
+            onClick={() => seeProject(index)}
+            StepIconComponent={QontoStepIcon}
+          >
+            <span className="pointer-on-hover">
+              {format(Date.parse(repo.createdAt), "MMMM yyyy")}
+            </span>
           </StepLabel>
           <StepContentStyled>
             <div className="repository-container">
               <RepositoryItem {...repo} />
             </div>
-            <Row className="justify-content-between">
+            <Row className="justify-content-center">
               <Col xs="auto">
-                <Button variant="outline-secondary" onClick={seePrevProject}>
-                  Back
-                </Button>
+                {index > 0 && (
+                  <a className="btn btn-link" onClick={seePrevProject}>
+                    <FontAwesomeIcon icon={faChevronUp} size="2x" />
+                  </a>
+                )}
               </Col>
               <Col xs="auto">
-                <Button variant="outline-secondary" onClick={seeNextProject}>
-                  Next
-                </Button>
+                {index < projects.length - 1 && (
+                  <a className="btn btn-link" onClick={seeNextProject}>
+                    <FontAwesomeIcon icon={faChevronDown} size="2x" />
+                  </a>
+                )}
               </Col>
             </Row>
           </StepContentStyled>

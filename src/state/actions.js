@@ -35,3 +35,11 @@ export function seePreviousProject() {
     type: PREV_PROJECT,
   };
 }
+
+export const SEE_A_PROJECT = "SEE_A_PROJECT";
+export function seeProject(index) {
+  return {
+    type: SEE_A_PROJECT,
+    index: index,
+  };
+}

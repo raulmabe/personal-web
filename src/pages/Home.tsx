@@ -42,7 +42,7 @@ function Home() {
       </Col>
       {/* MockUP */}
       <Col className="align-self-center order-3 order-md-2" xs="12" md="7">
-        <Mock />
+        <Mock size="lg" />
       </Col>
       <Col xs="12" className="order-2 order-md-3 mb-5">
         <SocialMedia />

@@ -1,0 +1,6 @@
+{
+  "title": "Portfolio web",
+  "version": "unfinished",
+  "path_to_mock": "./src/assets/img/",
+  "tag_tools": ["react", "redux", "web", "nodeJS"]
+}
