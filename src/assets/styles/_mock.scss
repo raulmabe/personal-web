@@ -2,7 +2,7 @@
   &-lg {
     overflow: visible;
     border-radius: 50%;
-    background: linear-gradient(to left bottom, $blue, $second-blue);
+    background: $blue-gradient;
     height: 40vw;
     width: 40vw;
     max-width: 30rem;
@@ -19,7 +19,7 @@
   &-sm {
     overflow: visible;
     border-radius: 50%;
-    background: linear-gradient(to left bottom, $blue, $second-blue);
+    background: $blue-gradient;
     height: 30vw;
     width: 30vw;
     max-width: 20rem;

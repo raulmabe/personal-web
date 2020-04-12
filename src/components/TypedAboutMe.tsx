@@ -14,8 +14,11 @@ class TypedAboutMe extends React.Component<TypedAboutMeProps> {
 
     const options = {
       strings: strings,
-      typeSpeed: 25,
+      typeSpeed: 50,
       backSpeed: 50,
+      smartBackspace: true,
+      loop: true,
+      cursorChar: "_",
     };
 
     this.typed = new Typed(this.element, options);
@@ -29,8 +32,9 @@ class TypedAboutMe extends React.Component<TypedAboutMeProps> {
 
   render() {
     return (
-      <div className="typed-wrap">
+      <div className="d-inline typed-wrap">
         <span
+          className="text-primary display-1"
           ref={(el) => {
             this.element = el;
           }}

@@ -1,6 +1,6 @@
 import React from "react";
 import { Row, Col, Button } from "react-bootstrap";
-import SocialMedia from "../components/SocialMedia";
+import FooterHome from "../components/FooterHome";
 import DownloadCV from "../components/DownloadCV";
 import { LinkContainer } from "react-router-bootstrap";
 import Mock from "../components/Mock";
@@ -47,7 +47,7 @@ function Home() {
         <Mock size="lg" />
       </Col>
       <Col xs="12" className="my-5">
-        <SocialMedia />
+        <FooterHome />
       </Col>
     </Row>
   );

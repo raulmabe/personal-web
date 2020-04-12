@@ -11,7 +11,7 @@ class MyNavBar extends React.Component {
           <Navbar.Brand>
             MA
             <br />
-            BE
+            BE.
           </Navbar.Brand>
         </LinkContainer>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
@@ -22,9 +22,6 @@ class MyNavBar extends React.Component {
             </LinkContainer>
             <LinkContainer to="/about">
               <Nav.Link active={false}>{"about me".toUpperCase()}</Nav.Link>
-            </LinkContainer>
-            <LinkContainer to="/contact">
-              <Nav.Link active={false}>{"contact".toUpperCase()}</Nav.Link>
             </LinkContainer>
           </Nav>
         </Navbar.Collapse>

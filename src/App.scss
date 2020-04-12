@@ -3,13 +3,14 @@
 @import "~rfs/scss";
 @import "./assets/styles/about";
 @import "./assets/styles/projects";
-@import "./assets/styles/contact";
 @import "./assets/styles/mock";
+@import "./assets/styles/nav";
 
 h2 {
   font-weight: 300;
   letter-spacing: 0.2rem;
   @include font-size(2rem);
+  text-transform: uppercase;
 }
 
 h3 {
@@ -19,6 +20,19 @@ h3 {
 
 h4 {
   font-weight: 300;
+}
+
+.display-1 {
+  text-transform: uppercase;
+  @include font-size(3rem !important);
+  line-height: 1.5 !important;
+}
+.subtitle {
+  text-transform: uppercase;
+  font-weight: 700;
+  @include font-size(1rem);
+  color: transparentize(white, 0.35);
+  letter-spacing: 1.5px;
 }
 
 .btn {
@@ -31,7 +45,7 @@ h4 {
 
 .btn.bg-gradient {
   border: 0;
-  background: linear-gradient(to left, $blue, $second-blue);
+  background: $blue-gradient;
   &:hover {
     background: linear-gradient(
       to left,

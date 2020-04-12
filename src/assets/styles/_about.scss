@@ -1,15 +1,43 @@
-$height-img-perfil: 12rem;
+$height-lg-img-perfil: 15rem;
+$height-sm-img-perfil: 13rem;
+$extra-space: 3rem;
 
+.img-perfil-box {
+  height: $height-lg-img-perfil;
+  width: $height-lg-img-perfil;
+
+  position: relative;
+  left: -$extra-space;
+  top: $extra-space;
+
+  border-radius: 50%;
+  background: $blue-gradient;
+}
+
+.img-perfil-box .img-perfil {
+  top: -$extra-space * 2;
+  left: $height-lg-img-perfil/3;
+  height: $height-lg-img-perfil + $extra-space;
+  width: $height-lg-img-perfil + $extra-space;
+}
 .img-perfil {
   position: relative;
   margin: auto;
+
   overflow: hidden;
-  height: $height-img-perfil;
+  height: $height-sm-img-perfil;
+  width: $height-sm-img-perfil;
+
   border-radius: 50%;
+  border: 0.5rem solid $body-bg;
 }
 
 .img-perfil img {
   display: block;
-  height: $height-img-perfil;
+  height: $height-lg-img-perfil + $extra-space;
   transform: scale(1.2);
+}
+
+.img-perfil img.sm {
+  height: $height-sm-img-perfil;
 }

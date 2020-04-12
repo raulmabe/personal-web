@@ -21,6 +21,9 @@ $body-color: white;
 $jumbotron-bg: transparent;
 $hr-border-color: rgba(white, 0.5);
 
+$blue-gradient: linear-gradient(to left, $blue, $second-blue);
+$red-gradient: linear-gradient(to left, $blue, $second-blue);
+
 // Layout
 .min-vh-85 {
   min-height: 85vh !important;
