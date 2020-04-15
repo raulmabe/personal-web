@@ -12,3 +12,12 @@
 .pointer-on-hover:hover {
   cursor: pointer;
 }
+
+.scale-2x {
+  @include for-phone-only {
+    transform: scale(0.2);
+  }
+  @include for-tablet-landscape-up {
+    transform: scale(1.3);
+  }
+}

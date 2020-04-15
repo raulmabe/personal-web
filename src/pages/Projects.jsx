@@ -1,11 +1,11 @@
 import React from "react";
 import RepositoryListContainer from "../components/containers/RepositoryListContainer";
-import LoadingProjects from "../components/ui/LoadingProjects";
+import MyLoader from "../components/ui/MyLoader";
 
 class Projects extends React.Component {
   render() {
     if (this.props.projectsLoading) {
-      return <LoadingProjects />;
+      return <div>Loading</div>;
     } else {
       return <RepositoryListContainer />;
     }

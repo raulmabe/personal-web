@@ -26,7 +26,7 @@ export function reducer(prevState = initialState, action) {
       });
     case FAILED_ON_GETTING_PROJECTS:
       return Object.assign({}, prevState, {
-        projectsFetching: false,
+        // projectsFetching: false,
         projects: [],
       });
     case NEXT_PROJECT:

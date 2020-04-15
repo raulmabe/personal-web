@@ -5,8 +5,6 @@ import NavbarWithRouter from "./components/Navbar";
 import { Layout } from "./components/Layout";
 import Home from "./pages/Home";
 import About from "./pages/About";
-// @ts-ignore
-import Contact from "./pages/Contact.jsx";
 import ProjectsContainer from "./components/containers/ProjectsContainer";
 
 function App() {

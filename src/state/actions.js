@@ -15,7 +15,7 @@ export function gotProjects(projects) {
 }
 
 export const FAILED_ON_GETTING_PROJECTS = "FAILED_ON_GETTING_PROJECTS";
-function failedGettingProjects() {
+export function failedGettingProjects() {
   return {
     type: FAILED_ON_GETTING_PROJECTS,
   };
