@@ -20,7 +20,7 @@ Lastly, one problem I faced during the first stages of development of the websit
 
 ## Built with 🛠️
 
-Below I mention several tools I used to develop this game:
+Below I mention several tools I used to develop this website:
 
 * [ReactJS](https://reactjs.org/) - A JavaScript library for building user interfaces
 * [NodeJS](https://nodejs.org/) - JavaScript runtime built on Chrome's V8 JavaScript engine
