@@ -26,5 +26,3 @@ Below I mention several tools I used to develop this game:
 * [NodeJS](https://nodejs.org/) - JavaScript runtime built on Chrome's V8 JavaScript engine
 * [Redux](https://redux.js.org/) - A Predictable State Container for JS Apps
 
----
-⌨️ con ❤️ por [RaulMabe](https://github.com/Rahuvich) 😊
