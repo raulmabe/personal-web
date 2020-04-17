@@ -23,7 +23,7 @@ function RepositoryItem(props) {
               dangerouslySetInnerHTML={{ __html: descriptionHTML }}
             ></p>
             <div className="d-block d-lg-none">
-              <Mock size="sm" />
+              <Mock size="sm" url={mocks[0]} />
             </div>
             {isFromGithub && (
               <div>

@@ -6,7 +6,7 @@ function Mock(props) {
   const { size } = props;
 
   const url = props.url;
-
+  console.log(`Fetching image from ${url}`);
   return (
     <Row className="justify-content-center align-items-center">
       <Col xs="auto">
