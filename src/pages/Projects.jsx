@@ -29,11 +29,11 @@ class Projects extends React.Component {
       return (
         <div className="row h-75 align-items-center container-fluid">
           <div className="col">
-            <div class="alert alert-dark" role="alert">
-              <h4 class="alert-heading">Maintenance!</h4>
+            <div className="alert alert-dark" role="alert">
+              <h4 className="alert-heading">Maintenance!</h4>
               <p>The server is not available right now. Try again later!</p>
               <hr />
-              <p class="mb-0">
+              <p className="mb-0">
                 Meanwhile you can{" "}
                 <a href="https://github.com/Rahuvich" target="_blank">
                   take a look at my Github

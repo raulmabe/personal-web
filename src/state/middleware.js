@@ -2,7 +2,7 @@ import { getProjects, gotProjects, failedGettingProjects } from "./actions";
 import axios from "axios";
 
 const axiosServer = axios.create({
-  baseURL: "https://www.raulmabe.dev/api/repositories",
+  baseURL: "https://raulmabe.dev/api/repositories",
 });
 
 // Thunk middleware
@@ -13,9 +13,23 @@ export function fetchProjects() {
     return axiosServer
       .get("")
       .then((result) => {
-        return dispatch(gotProjects(result.data));
+        const projects = result.data;
+
+        const newProjects = projects.map((project) => {
+          var aux = project;
+          aux.mocks = project.mabe.path_to_mock.map((mockPath) => {
+            return `https://cdn.jsdelivr.net/gh/Rahuvich/${project.name}@master${mockPath}`;
+          });
+
+          return aux;
+        });
+
+        console.log(result.data);
+
+        return dispatch(gotProjects(newProjects));
       })
       .catch((error) => {
+        console.log(error);
         return dispatch(failedGettingProjects());
       });
   };

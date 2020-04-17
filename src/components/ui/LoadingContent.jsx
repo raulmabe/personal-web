@@ -13,7 +13,7 @@ const LoadingContent = () => (
         color="#434e52"
         showLoadingAnimation
       />
-      <div className="d-inline-block d-lg-none bg-info loading-img my-3">
+      <div className="d-inline-block d-lg-none loading-img my-3">
         <ReactPlaceholder
           type="round"
           ready={false}
