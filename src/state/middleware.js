@@ -17,7 +17,8 @@ export function fetchProjects() {
 
         const newProjects = projects.map((project) => {
           var aux = project;
-          aux.mocks = project.mabe.path_to_mock.map((mockPath) => {
+          console.log(aux);
+          aux.mocks = project.mabe.path_to_mocks.map((mockPath) => {
             return `https://cdn.jsdelivr.net/gh/Rahuvich/${project.name}@master${mockPath}`;
           });
 
