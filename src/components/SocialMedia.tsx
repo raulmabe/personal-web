@@ -11,13 +11,31 @@ function SocialMedia() {
   return (
     <Row className="justify-content-center">
       <Col xs="auto">
-        <FontAwesomeIcon icon={faGithubAlt} size="2x" />
+        <a
+          href="https://github.com/Rahuvich"
+          target="_blank"
+          className="text-white"
+        >
+          <FontAwesomeIcon icon={faGithubAlt} size="2x" />
+        </a>
       </Col>
       <Col xs="auto">
-        <FontAwesomeIcon icon={faTwitter} size="2x" />
+        <a
+          href="https://github.com/Rahuvich"
+          target="_blank"
+          className="text-white"
+        >
+          <FontAwesomeIcon icon={faTwitter} size="2x" />
+        </a>
       </Col>
       <Col xs="auto">
-        <FontAwesomeIcon icon={faLinkedinIn} size="2x" />
+        <a
+          href="https://www.linkedin.com/in/raul-mateo-beneyto-0b2204187/"
+          target="_blank"
+          className="text-white"
+        >
+          <FontAwesomeIcon icon={faLinkedinIn} size="2x" />
+        </a>
       </Col>
     </Row>
   );

@@ -15,55 +15,57 @@ function About() {
 
   return (
     <div className="container-fluid h-100">
-      <Row className="h-100 flex-grow-1 align-items-center justify-content-around mb-5 ">
-        <Col xs="4" className="text-center d-none d-lg-block">
-          <ProfilePic size="lg" />
-          <SocialMedia />
-        </Col>
-        <Col xs="12" lg="8">
+      <Row className="justify-content-center">
+        <Col xs="12" className="text-center">
           <h1 className="display-1">
             About
             <TypedAboutMe strings={["Me", "Apps", "Games"]}></TypedAboutMe>
           </h1>
+        </Col>
+      </Row>
+      <Row className="h-75 flex-grow-1 align-items-center justify-content-around mb-5 ">
+        <Col xs="4" className="text-center d-none d-lg-block">
+          <ProfilePic size="lg" />
+          <div className="d-block mt-4">
+            <SocialMedia />
+          </div>
+        </Col>
+        <Col xs="12" lg="7">
           <div className="d-lg-none my-2">
             <ProfilePic size="sm" />
           </div>
-          <Row className="justify-content-center subtitle my-3">
-            <Col xs="12" lg="auto" className="text-center">
-              RAUL MATEO BENEYTO
-            </Col>
+          <Row className="subtitle my-3">
             <Col
               xs="12"
               lg="auto"
               className="text-center"
-            >{`${myYears} old`}</Col>
-            <Col xs="12" lg="auto" className="text-center">
-              SOFTWARE ENGINEERing student
-            </Col>
+            >{`I am Raul Mateo Beneyto,`}</Col>
+          </Row>
+          <Row className="subtitle-2 my-3">
+            <Col
+              xs="12"
+              lg="auto"
+              className="text-center"
+            >{`Software Engineer Student`}</Col>
           </Row>
           {/* <p className="subtitle">{`RAUL MATEO BENEYTO  -  ${myYears} old -  SOFTWARE ENGINEERing student`}</p> */}
           <p className="text-justify">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi
-            laboriosam saepe doloremque mollitia dicta ullam accusamus corrupti
-            autem et provident, ducimus, modi aspernatur suscipit explicabo
-            nostrum fuga, architecto itaque voluptatem vel quia nulla deleniti
-            officia atque officiis. Dolores, nulla! Quisquam, aut beatae
-            cupiditate dolor ducimus culpa corrupti repudiandae! Hic vitae est
-            reiciendis nemo molestias voluptas atque, fuga aperiam culpa saepe
-            dolorem maiores voluptatibus fugit laborum? Rem esse consequatur sit
-            sequi in illum voluptatibus delectus nihil labore impedit, corrupti
-            pariatur numquam, nobis suscipit iste ab dicta quam dolore vitae non
-            optio blanditiis excepturi! Eum omnis qui ducimus quisquam molestias
-            praesentium illum?
+            Based in Barcelona, {`${myYears} old`}, currently studying at
+            Universitat Politecnica de Catalunya. <br />
+            <br />I am a self-driven person who enjoys learning and creating all
+            kinds of projects. I relish working as a team as it requires
+            communication and dedication. I have an open mind to new ideas and
+            appreaciate learning from others with more knowledge and experience.
+            I am a positive person who enjoys maintaining the enthusiasm in a
+            work environment.
+            <br />
+            <br /> My expertise is composed of different types of projects,
+            although I enjoy the most developing beautiful cross platform mobile
+            apps based on the user experience, developed with{" "}
+            <a href="https://flutter.dev/">Flutter</a>. I also have developed
+            some cross platform games with the help of{" "}
+            <a href="https://libgdx.badlogicgames.com/">libGDX</a>.
           </p>
-          <Row className="justify-content-center align-middle">
-            <Col xs="auto">
-              <img className="mx-2" height="40px" src={FlutterLogo} />
-            </Col>
-            <Col xs="auto">
-              <img className="mx-2" height="30px" src={LibgdxLogo} />
-            </Col>
-          </Row>
         </Col>
       </Row>
       <Row className="d-lg-none justify-content-center mb-5">

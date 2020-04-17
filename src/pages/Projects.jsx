@@ -1,11 +1,49 @@
 import React from "react";
 import RepositoryListContainer from "../components/containers/RepositoryListContainer";
-import MyLoader from "../components/ui/MyLoader";
+import LoadingContent from "../components/ui/LoadingContent";
+import ReactPlaceholder from "react-placeholder";
+import "react-placeholder/lib/reactPlaceholder.css";
 
 class Projects extends React.Component {
   render() {
+    // return (
+    //   <ReactPlaceholder
+    //     showLoadingAnimation={true}
+    //     type="media"
+    //     rows={7}
+    //     ready={!this.props.projectsLoading}
+    //     customPlaceholder={<LoadingContent />}
+    //   >
+    //     <RepositoryListContainer />
+    //   </ReactPlaceholder>
+    // );
+
     if (this.props.projectsLoading) {
-      return <div>Loading</div>;
+      return (
+        <ReactPlaceholder
+          ready={false}
+          customPlaceholder={<LoadingContent />}
+        />
+      );
+    } else if (this.props.errorFetchingProjects) {
+      return (
+        <div className="row h-75 align-items-center container-fluid">
+          <div className="col">
+            <div class="alert alert-dark" role="alert">
+              <h4 class="alert-heading">Maintenance!</h4>
+              <p>The server is not available right now. Try again later!</p>
+              <hr />
+              <p class="mb-0">
+                Meanwhile you can{" "}
+                <a href="https://github.com/Rahuvich" target="_blank">
+                  take a look at my Github
+                </a>
+                !
+              </p>
+            </div>
+          </div>
+        </div>
+      );
     } else {
       return <RepositoryListContainer />;
     }

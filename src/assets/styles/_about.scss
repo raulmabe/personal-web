@@ -1,6 +1,6 @@
 $height-lg-img-perfil: 15rem;
 $height-sm-img-perfil: 13rem;
-$extra-space: 3rem;
+$extra-space: 5rem;
 
 .img-perfil-box {
   height: $height-lg-img-perfil;
@@ -15,8 +15,8 @@ $extra-space: 3rem;
 }
 
 .img-perfil-box .img-perfil {
-  top: -$extra-space * 2;
-  left: $height-lg-img-perfil/3;
+  top: -$extra-space * 1.5;
+  left: $extra-space * 1;
   height: $height-lg-img-perfil + $extra-space;
   width: $height-lg-img-perfil + $extra-space;
 }

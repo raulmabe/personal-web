@@ -1,7 +1,7 @@
 import React from "react";
 import { Row, Col, Button } from "react-bootstrap";
 import FooterHome from "../components/FooterHome";
-import DownloadCV from "../components/DownloadCV";
+import DownloadCV from "../components/DownloadCV.jsx";
 import { LinkContainer } from "react-router-bootstrap";
 import Mock from "../components/Mock";
 

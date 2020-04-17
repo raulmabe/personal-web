@@ -1,5 +1,5 @@
 import React from "react";
-import mock from "../assets/img/mock.png";
+import mock from "../assets/img/mock2.png";
 import { Row, Col } from "react-bootstrap";
 
 function Mock({ size }) {

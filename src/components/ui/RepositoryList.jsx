@@ -96,7 +96,7 @@ function RepositoryList({
             onClick={() => seeProject(index)}
             StepIconComponent={QontoStepIcon}
           >
-            <span className="pointer-on-hover">
+            <span className="pointer-on-hover step-item">
               {format(Date.parse(repo.createdAt), "MMMM yyyy")}
             </span>
           </StepLabel>

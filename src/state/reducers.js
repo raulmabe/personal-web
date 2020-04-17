@@ -10,6 +10,7 @@ import {
 const initialState = {
   projects: [],
   projectsFetching: false,
+  projectsError: false,
   activeProject: 0,
 };
 
@@ -18,15 +19,18 @@ export function reducer(prevState = initialState, action) {
     case GET_PROJECTS:
       return Object.assign({}, prevState, {
         projectsFetching: true,
+        projectsError: false,
       });
     case GOT_PROJECTS:
       return Object.assign({}, prevState, {
         projectsFetching: false,
         projects: action.projects,
+        projectsError: false,
       });
     case FAILED_ON_GETTING_PROJECTS:
       return Object.assign({}, prevState, {
-        // projectsFetching: false,
+        projectsFetching: false,
+        projectsError: true,
         projects: [],
       });
     case NEXT_PROJECT:

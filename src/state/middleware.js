@@ -2,7 +2,7 @@ import { getProjects, gotProjects, failedGettingProjects } from "./actions";
 import axios from "axios";
 
 const axiosServer = axios.create({
-  baseURL: "http://134.122.97.83/api/repositories",
+  baseURL: "https://www.raulmabe.dev/api/repositories",
 });
 
 // Thunk middleware
