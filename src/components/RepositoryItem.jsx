@@ -5,14 +5,8 @@ import Mock from "./Mock";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGithubAlt } from "@fortawesome/free-brands-svg-icons";
 
-function RepositoryItem({
-  name,
-  descriptionHTML,
-  createdAt,
-  url,
-  readme,
-  mabe,
-}) {
+function RepositoryItem(props) {
+  const { name, descriptionHTML, createdAt, url, readme, mabe, mocks } = props;
   const [open, setOpen] = useState(false);
 
   const isFromGithub = url != null && url.includes("github");
@@ -83,7 +77,7 @@ function RepositoryItem({
           </div>
         </Col>
         <Col lg="4" className="d-none d-lg-block">
-          <Mock size="sm" />
+          <Mock size="sm" url={mocks[0]} />
         </Col>
       </Row>
     </div>

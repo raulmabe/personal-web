@@ -17,7 +17,6 @@ export function fetchProjects() {
 
         const newProjects = projects.map((project) => {
           var aux = project;
-          console.log(aux);
           aux.mocks = project.mabe.path_to_mocks.map((mockPath) => {
             return `https://cdn.jsdelivr.net/gh/Rahuvich/${project.name}@master${mockPath}`;
           });
@@ -25,12 +24,12 @@ export function fetchProjects() {
           return aux;
         });
 
-        console.log(result.data);
+        console.log(newProjects);
 
         return dispatch(gotProjects(newProjects));
       })
       .catch((error) => {
-        console.log(error);
+        // console.log(error);
         return dispatch(failedGettingProjects());
       });
   };
