@@ -19,7 +19,7 @@ const theme = createMuiTheme({
   },
 });
 
-const store = createStore(reducer, applyMiddleware(thunkMiddleware, logger));
+const store = createStore(reducer, applyMiddleware(thunkMiddleware));
 
 store.dispatch(fetchProjects());
 
