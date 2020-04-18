@@ -1,6 +1,6 @@
 # Personal web - Portfolio
 
-_This is a portfolio web where I show several projects I have developed as a Software Engineer. It connects with an independent back-end made in Express, which connects with Github GraphQL API to retrieve some selected projects directly from its server._
+_This is a portfolio web where I show several projects I have developed as a Software Engineer. It connects with an independent back-end made in Express, which connects with Github GraphQL API to fetch some selected projects directly from its server._
 
 ## Motivation
 
