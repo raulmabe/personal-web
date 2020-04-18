@@ -44,9 +44,8 @@ function About() {
               xs="12"
               lg="auto"
               className="text-center"
-            >{`Software Engineer Student`}</Col>
+            >{`Software Engineering Student`}</Col>
           </Row>
-          {/* <p className="subtitle">{`RAUL MATEO BENEYTO  -  ${myYears} old -  SOFTWARE ENGINEERing student`}</p> */}
           <p className="text-justify">
             Based in Barcelona, {`${myYears} old`}, currently studying at
             Universitat Politecnica de Catalunya. <br />
