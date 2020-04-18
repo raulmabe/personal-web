@@ -1,5 +1,4 @@
 import { connect } from "react-redux";
-import { fetchProjects } from "../../state/middleware";
 import {
   seeNextProject,
   seePreviousProject,

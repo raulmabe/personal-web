@@ -36,7 +36,11 @@ class Projects extends React.Component {
               <hr />
               <p className="mb-0">
                 Meanwhile you can{" "}
-                <a href="https://github.com/Rahuvich" target="_blank">
+                <a
+                  href="https://github.com/Rahuvich"
+                  rel="noopener noreferrer"
+                  target="_blank"
+                >
                   take a look at my Github
                 </a>
                 !

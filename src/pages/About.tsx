@@ -3,8 +3,6 @@ import { Row, Col } from "react-bootstrap";
 import TypedAboutMe from "../components/TypedAboutMe";
 import { formatDistanceStrict } from "date-fns";
 import SocialMedia from "../components/SocialMedia";
-import FlutterLogo from "../assets/img/flutter.svg";
-import LibgdxLogo from "../assets/img/libgdx.png";
 import ProfilePic from "../components/ProfilePic";
 
 function About() {

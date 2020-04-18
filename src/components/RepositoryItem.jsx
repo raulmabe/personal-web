@@ -6,7 +6,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGithubAlt } from "@fortawesome/free-brands-svg-icons";
 
 function RepositoryItem(props) {
-  const { name, descriptionHTML, createdAt, url, readme, mabe, mocks } = props;
+  const { name, descriptionHTML, url, readme, mabe, mocks } = props;
   const [open, setOpen] = useState(false);
 
   const isFromGithub = url != null && url.includes("github");
