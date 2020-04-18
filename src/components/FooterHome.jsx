@@ -8,7 +8,7 @@ function FooterHome() {
       <SocialMedia />
       <Row className="justify-content-center">
         <Col xs="auto">
-          <h2>software engineer</h2>
+          <h2 className="display-2">software engineer</h2>
         </Col>
       </Row>
     </div>

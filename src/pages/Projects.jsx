@@ -1,6 +1,7 @@
 import React from "react";
 import RepositoryListContainer from "../components/containers/RepositoryListContainer";
 import LoadingContent from "../components/ui/LoadingContent";
+import GithubBanner from "../components/ui/GithubBanner";
 import ReactPlaceholder from "react-placeholder";
 import "react-placeholder/lib/reactPlaceholder.css";
 
@@ -45,7 +46,12 @@ class Projects extends React.Component {
         </div>
       );
     } else {
-      return <RepositoryListContainer />;
+      return (
+        <div>
+          <RepositoryListContainer />
+          <GithubBanner />
+        </div>
+      );
     }
   }
 }

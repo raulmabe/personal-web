@@ -32,3 +32,12 @@
 .step-item {
   @include font-size(1.4rem);
 }
+
+.github-banner {
+  border-radius: 15px 0px 0px 0px;
+  padding: 0.6rem 1.4rem;
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  background-color: #636e72;
+}

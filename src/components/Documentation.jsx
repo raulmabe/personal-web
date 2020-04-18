@@ -6,10 +6,10 @@ function Documentation({ readme }) {
   var markdown = marked(readme);
 
   // Quitar el primer h1
-  var string = "</h1>";
+  var string = `<h2 id="motivation">`;
   var index = markdown.indexOf(string); // Gets the first index where a space occours
-  var finalHTML = markdown.substr(index + string.length);
-
+  var finalHTML = markdown.substr(index - 1);
+  console.log(markdown);
   return (
     <div
       className="readme-box"

@@ -22,8 +22,12 @@ function RepositoryItem(props) {
               className="lead"
               dangerouslySetInnerHTML={{ __html: descriptionHTML }}
             ></p>
-            <div className="d-block d-lg-none">
-              <Mock size="sm" url={mocks[0]} />
+            <div className="d-block d-lg-none mt-5">
+              <Mock
+                size="sm"
+                url={mocks[0]}
+                angle={mabe.mocks_angle && mabe.mocks_angle[0]}
+              />
             </div>
             {isFromGithub && (
               <div>
@@ -77,7 +81,11 @@ function RepositoryItem(props) {
           </div>
         </Col>
         <Col lg="4" className="d-none d-lg-block">
-          <Mock size="sm" url={mocks[0]} />
+          <Mock
+            size="sm"
+            url={mocks[0]}
+            angle={mabe.mocks_angle && mabe.mocks_angle[0]}
+          />
         </Col>
       </Row>
     </div>
