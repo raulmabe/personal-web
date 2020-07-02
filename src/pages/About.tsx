@@ -58,7 +58,7 @@ function About() {
             <br />
             <br /> My expertise is composed of different types of projects,
             although I enjoy the most developing beautiful cross platform mobile
-            apps based on the user experience, developed with{" "}
+            apps based on the user experience, using{" "}
             <a href="https://flutter.dev/">Flutter</a>. I also have developed
             some cross platform games with the help of{" "}
             <a href="https://libgdx.badlogicgames.com/">libGDX</a>.
