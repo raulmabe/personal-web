@@ -10,6 +10,7 @@ function RepositoryItem(props) {
   const [open, setOpen] = useState(false);
 
   const isFromGithub = url != null && url.includes("github");
+  const isPrivate = mabe.private && true;
   const readmeExists = readme != null && readme.length > 0;
 
   return (
@@ -23,11 +24,7 @@ function RepositoryItem(props) {
               dangerouslySetInnerHTML={{ __html: descriptionHTML }}
             ></p>
             <div className="d-block d-lg-none mt-5">
-              <Mock
-                size="sm"
-                url={mocks[0]}
-                angle={mabe.mocks_angle && mabe.mocks_angle[0]}
-              />
+              <Mock size="sm" url={mocks[0]} />
             </div>
             {isFromGithub && (
               <div>

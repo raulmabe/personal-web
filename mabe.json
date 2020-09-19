@@ -1,6 +1,10 @@
 {
-  "title": "Portfolio web",
-  "version": "unfinished",
-  "path_to_mocks": ["/src/assets/img/MacbookAir.png"],
-  "tag_tools": ["react", "redux", "web", "nodeJS"]
+  "title": "Single-page Application Portfolio",
+  "version": "1",
+  "tag_tools": ["react", "redux", "web", "nodeJS"],
+  "platforms": ["Web"],
+  "link_images": [
+    "https://res.cloudinary.com/mabe-portfolio/image/upload/v1600531040/portfolio-web.png"
+  ],
+  "private": false
 }

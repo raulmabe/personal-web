@@ -1,5 +1,5 @@
 import React from "react";
-import mock from "../assets/img/mock.png";
+
 import { Row, Col } from "react-bootstrap";
 
 function Mock(props) {
@@ -19,7 +19,11 @@ function Mock(props) {
         <div className={`mock-container-${size}`}>
           <img
             alt="MockUp"
-            src={url != null ? url : mock}
+            src={
+              url != null
+                ? url
+                : "https://res.cloudinary.com/mabe-portfolio/image/upload/v1600531040/mock.png"
+            }
             className={imgClass}
           ></img>
         </div>
