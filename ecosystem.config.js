@@ -1,6 +1,6 @@
 module.exports = {
   apps : [{
-    name: 'Web',
+    name: 'personal-web',
     script: 'npx',
 
     args: 'serve -s build',
