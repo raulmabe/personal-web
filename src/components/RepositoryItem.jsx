@@ -4,6 +4,8 @@ import { Row, Col, Collapse, Button } from "react-bootstrap";
 import Mock from "./Mock";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGithubAlt } from "@fortawesome/free-brands-svg-icons";
+import Emoji from "./emoji";
+import { Twemoji } from 'react-emoji-render';
 
 function RepositoryItem(props) {
   const { name, descriptionHTML, url, readme, mabe, mocks } = props;
@@ -23,19 +25,24 @@ function RepositoryItem(props) {
               className="lead"
               dangerouslySetInnerHTML={{ __html: descriptionHTML }}
             ></p>
+            
             <div className="d-block d-lg-none mt-5">
-              <Mock size="sm" url={mocks[0]} />
+              <Mock size="sm" url={mocks instanceof Array ? mocks[0]: mocks}  angle={mabe.mocks_angle && mabe.mocks_angle instanceof Array ? mabe.mocks_angle[0] : mabe.mocks_angle}/>
             </div>
             {isFromGithub && (
               <div>
                 <hr className="my-4" />
                 <Collapse in={!open} className="mb-5">
                   <div id="example-collapse-text">
+
+                  {/* <Twemoji text="🛠️"/> */}
+             <p>#{mabe.platforms.join(' #').toLowerCase()} #{mabe.tag_tools.join(' #')}</p>
                     <p>
                       If you are interested in this project, or just want to
                       show appreciation for my work, consider starring the
                       repository on Github!
                     </p>
+                    
                   </div>
                 </Collapse>
               </div>
@@ -80,8 +87,8 @@ function RepositoryItem(props) {
         <Col lg="4" className="d-none d-lg-block">
           <Mock
             size="sm"
-            url={mocks[0]}
-            angle={mabe.mocks_angle && mabe.mocks_angle[0]}
+            url={mocks instanceof Array ? mocks[0] : mocks}
+            angle={mabe.mocks_angle && mabe.mocks_angle instanceof Array ? mabe.mocks_angle[0] : mabe.mocks_angle}
           />
         </Col>
       </Row>

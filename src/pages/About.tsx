@@ -65,7 +65,7 @@ function About() {
           </p>
         </Col>
       </Row>
-      <Row className="d-lg-none justify-content-center mb-5">
+      <Row className="d-lg-none justify-content-center pt-5">
         <Col xs="auto" className="text-center">
           <SocialMedia />
         </Col>

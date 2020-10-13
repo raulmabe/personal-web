@@ -4,15 +4,14 @@ import { Row, Col } from "react-bootstrap";
 
 function Mock(props) {
   const { size } = props;
-
-  const url = props.url;
   const angle = props.angle;
 
   var imgClass = "";
 
   if (angle != null && angle !== "undefined") imgClass += `angle-${angle}`;
+  const url = props.url;
 
-  console.log(`Fetching image from ${url}`);
+  
   return (
     <Row className="justify-content-center align-items-center">
       <Col xs="auto">

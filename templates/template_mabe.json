@@ -5,6 +5,7 @@
   "platforms": ["Web"],
   "link_images": [],
   "private": false,
-  "link": "playstore link for example",
-  "link_text": "Download the app"
+  "mocks_angle":["90"], //optional
+  "link": "playstore link for example", //optional
+  "link_text": "Download the app" //optional
 }
