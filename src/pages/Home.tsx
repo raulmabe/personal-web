@@ -5,15 +5,18 @@ import DownloadCV from "../components/DownloadCV.jsx";
 import { LinkContainer } from "react-router-bootstrap";
 import Mock from "../components/Mock";
 
+
 function Home() {
+
+
   return (
-    <Row className="flex-grow-1 align-items-end">
+    <Row className="flex-grow-1 align-items-end ">
       {/* SIDE QUOTE AND BUTTONS */}
       <Col className="align-self-center " xs="12" lg="6">
         <Row className="align-center justify-content-center">
           <Col xs="9">
             <h3>
-              <blockquote>
+              <blockquote className="">
                 {`More than not achieving my goals,\nwhat frightens me the most is to stop having them`}
               </blockquote>
             </h3>
@@ -46,7 +49,9 @@ function Home() {
       <Col className="align-self-center " xs="12" lg="6">
         <Mock size="lg" />
       </Col>
-      <Col xs="12" className="my-5">
+
+      {/* Footer */}
+      <Col xs="12" className="my-5 ">
         <FooterHome />
       </Col>
     </Row>

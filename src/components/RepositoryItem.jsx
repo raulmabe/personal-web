@@ -4,16 +4,17 @@ import { Row, Col, Collapse, Button } from "react-bootstrap";
 import Mock from "./Mock";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGithubAlt } from "@fortawesome/free-brands-svg-icons";
-import Emoji from "./emoji";
-import { Twemoji } from 'react-emoji-render';
+/* import Emoji from "./emoji";
+import { Twemoji } from 'react-emoji-render'; */
 
 function RepositoryItem(props) {
   const { name, descriptionHTML, url, readme, mabe, mocks } = props;
   const [open, setOpen] = useState(false);
 
   const isFromGithub = url != null && url.includes("github");
-  const isPrivate = mabe.private && true;
+  /* const isPrivate = mabe.private && true; */
   const readmeExists = readme != null && readme.length > 0;
+
 
   return (
     <div>
@@ -25,9 +26,9 @@ function RepositoryItem(props) {
               className="lead"
               dangerouslySetInnerHTML={{ __html: descriptionHTML }}
             ></p>
-            
+
             <div className="d-block d-lg-none mt-5">
-              <Mock size="sm" url={mocks instanceof Array ? mocks[0]: mocks}  angle={mabe.mocks_angle && mabe.mocks_angle instanceof Array ? mabe.mocks_angle[0] : mabe.mocks_angle}/>
+              <Mock size="sm" url={mocks instanceof Array ? mocks[0] : mocks} angle={mabe.mocks_angle && mabe.mocks_angle instanceof Array ? mabe.mocks_angle[0] : mabe.mocks_angle} />
             </div>
             {isFromGithub && (
               <div>
@@ -35,14 +36,14 @@ function RepositoryItem(props) {
                 <Collapse in={!open} className="mb-5">
                   <div id="example-collapse-text">
 
-                  {/* <Twemoji text="🛠️"/> */}
-             <p>#{mabe.platforms.join(' #').toLowerCase()} #{mabe.tag_tools.join(' #')}</p>
+                    {/* <Twemoji text="🛠️"/> */}
+                    <p>#{mabe.platforms.join(' #').toLowerCase()} #{mabe.tag_tools.join(' #')}</p>
                     <p>
                       If you are interested in this project, or just want to
                       show appreciation for my work, consider starring the
                       repository on Github!
                     </p>
-                    
+
                   </div>
                 </Collapse>
               </div>

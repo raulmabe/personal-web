@@ -6,7 +6,6 @@ import { createStore, applyMiddleware } from "redux";
 import { Provider } from "react-redux";
 import { reducer } from "./state/reducers";
 import thunkMiddleware from "redux-thunk";
-import logger from "redux-logger";
 import { fetchProjects } from "./state/middleware";
 import { createMuiTheme, ThemeProvider } from "@material-ui/core/styles";
 

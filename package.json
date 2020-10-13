@@ -23,6 +23,7 @@
     "classnames": "^2.2.6",
     "date-fns": "^2.11.1",
     "font-awesome": "^4.7.0",
+    "gsap": "^3.5.1",
     "marked": "^0.8.2",
     "node-sass": "^4.13.1",
     "react": "^16.13.1",

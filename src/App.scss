@@ -41,7 +41,8 @@
 }
 
 h1 {
-  display: inline;
+  @include font-size(3.5rem !important);
+  padding-bottom: 10px;
 }
 
 h3 {
@@ -82,11 +83,7 @@ h4 {
   border: 0;
   background: $blue-gradient;
   &:hover {
-    background: linear-gradient(
-      to left,
-      darken($blue, 5),
-      darken($second-blue, 5)
-    );
+    background: linear-gradient(to left, darken($blue, 5), darken($second-blue, 5));
   }
 }
 
