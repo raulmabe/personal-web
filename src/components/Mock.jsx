@@ -1,9 +1,9 @@
 import React, { useEffect } from "react";
 
 import { Row, Col } from "react-bootstrap";
-import gsap from "gsap"
-import { ScrollTrigger } from "gsap/ScrollTrigger"
-gsap.registerPlugin(ScrollTrigger)
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+gsap.registerPlugin(ScrollTrigger);
 
 function Mock(props) {
   const { size } = props;
@@ -14,32 +14,31 @@ function Mock(props) {
   if (angle != null && angle !== "undefined") imgClass += `angle-${angle}`;
   const url = props.url;
 
-
-
   const fadeIn = (element, duration) => {
-    gsap.fromTo(element, {
-      y: 80,
-      opacity: 0,
-    }, {
-      duration: duration,
-      opacity: 1,
-      y: 0,
-      ease: "power4.out",
-      scrollTrigger: element
-    })
-  }
+    gsap.fromTo(
+      element,
+      {
+        y: 80,
+        opacity: 0,
+      },
+      {
+        duration: duration,
+        opacity: 1,
+        y: 0,
+        ease: "power4.out",
+        scrollTrigger: element,
+      }
+    );
+  };
 
+  useEffect(() => {
+    console.log("Starting animation");
 
-  useEffect(
-    () => {
-      console.log('Starting animation');
-
-      fadeIn('.fadeAnimation-short', 2);
-    }, []
-  )
+    fadeIn(".fadeAnimation-short", 2);
+  }, []);
 
   return (
-    <Row className="justify-content-center align-items-center py-5">
+    <Row className="justify-content-center align-items-center py-5 py-lg-0">
       <Col xs="auto">
         <div className={`mock-container-${size}`}>
           <img
