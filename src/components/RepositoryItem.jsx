@@ -2,19 +2,27 @@ import React, { useState } from "react";
 import Documentation from "./Documentation";
 import { Row, Col, Collapse, Button } from "react-bootstrap";
 import Mock from "./Mock";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faGithubAlt } from "@fortawesome/free-brands-svg-icons";
-/* import Emoji from "./emoji";
-import { Twemoji } from 'react-emoji-render'; */
+import { FaGithubAlt, FaGlobe, FaDesktop, FaAppStore } from "react-icons/fa";
+import { DiAndroid } from "react-icons/di";
 
 function RepositoryItem(props) {
   const { name, descriptionHTML, url, readme, mabe, mocks } = props;
   const [open, setOpen] = useState(false);
 
-  const isFromGithub = url != null && url.includes("github");
-  /* const isPrivate = mabe.private && true; */
+  const isCodePublic = !mabe.private && url != null && url.includes("github");
+
   const readmeExists = readme != null && readme.length > 0;
 
+  const hasAltLink = mabe.link != null && mabe.link_text != null;
+
+  const hasFirstButton = readmeExists;
+  const hasSecondButton = hasAltLink || isCodePublic;
+
+  mabe.platforms = mabe.platforms.map((platform) => platform.toLowerCase());
+  const isForWeb = mabe.platforms.includes("web");
+  const isForAndroid = mabe.platforms.includes("android");
+  const isForIOS = mabe.platforms.includes("ios");
+  const isForDesktop = mabe.platforms.includes("desktop");
 
   return (
     <div>
@@ -22,56 +30,80 @@ function RepositoryItem(props) {
         <Col xs="12" lg="8">
           <div className="jumbotron">
             <h1 className="display-4">{mabe == null ? name : mabe.title} </h1>
+            {isForWeb && <FaGlobe className="icon-2x align-text-bottom mx-1" />}
+            {isForAndroid && (
+              <DiAndroid className="icon-2x align-text-bottom mx-1" />
+            )}
+            {isForIOS && (
+              <FaAppStore className="icon-2x align-text-bottom mx-1" />
+            )}
+            {isForDesktop && (
+              <FaDesktop className="icon-2x align-text-bottom mx-1" />
+            )}
+
             <p
               className="lead"
               dangerouslySetInnerHTML={{ __html: descriptionHTML }}
             ></p>
 
             <div className="d-block d-lg-none mt-5">
-              <Mock size="sm" url={mocks instanceof Array ? mocks[0] : mocks} angle={mabe.mocks_angle && mabe.mocks_angle instanceof Array ? mabe.mocks_angle[0] : mabe.mocks_angle} />
+              <Mock
+                size="sm"
+                url={mocks instanceof Array ? mocks[0] : mocks}
+                angle={
+                  mabe.mocks_angle && mabe.mocks_angle instanceof Array
+                    ? mabe.mocks_angle[0]
+                    : mabe.mocks_angle
+                }
+              />
             </div>
-            {isFromGithub && (
+            {isCodePublic && (
               <div>
                 <hr className="my-4" />
                 <Collapse in={!open} className="mb-5">
                   <div id="example-collapse-text">
-
-                    {/* <Twemoji text="🛠️"/> */}
-                    <p>#{mabe.platforms.join(' #').toLowerCase()} #{mabe.tag_tools.join(' #')}</p>
+                    <p>#{mabe.tag_tools.join(" #")}</p>
                     <p>
                       If you are interested in this project, or just want to
                       show appreciation for my work, consider starring the
                       repository on Github!
                     </p>
-
                   </div>
                 </Collapse>
               </div>
             )}
 
             <Row className="justify-content-center">
-              {readmeExists && (
+              {hasFirstButton && (
                 <Col xs="12" md="auto" className="text-center my-1 my-md-0">
                   <div>
-                    <Button
+                    <a
                       onClick={() => setOpen(!open)}
                       aria-controls="example-collapse-text"
                       aria-expanded={open}
+                      className="btn btn-outline-light"
                     >
                       {open ? "See less" : "See more"}
-                    </Button>
+                    </a>
                   </div>
                 </Col>
               )}
-              {isFromGithub && readmeExists && (
+              {hasSecondButton && hasFirstButton && (
                 <Col xs="12" md="auto" className="text-center my-1 my-md-0">
                   <i>- or -</i>
                 </Col>
               )}
-              {isFromGithub && (
+              {hasAltLink && (
                 <Col xs="12" md="auto" className="text-center my-1 my-md-0">
-                  <a href={url} className="btn btn-outline-light">
-                    Check on <FontAwesomeIcon icon={faGithubAlt} />
+                  <a href={mabe.link} className="btn btn-primary">
+                    {mabe.link_text}
+                  </a>
+                </Col>
+              )}
+              {!hasAltLink && isCodePublic && (
+                <Col xs="12" md="auto" className="text-center my-1 my-md-0">
+                  <a href={url} className="btn btn-primary">
+                    Check on <FaGithubAlt className="icon" />
                   </a>
                 </Col>
               )}
@@ -89,7 +121,11 @@ function RepositoryItem(props) {
           <Mock
             size="sm"
             url={mocks instanceof Array ? mocks[0] : mocks}
-            angle={mabe.mocks_angle && mabe.mocks_angle instanceof Array ? mabe.mocks_angle[0] : mabe.mocks_angle}
+            angle={
+              mabe.mocks_angle && mabe.mocks_angle instanceof Array
+                ? mabe.mocks_angle[0]
+                : mabe.mocks_angle
+            }
           />
         </Col>
       </Row>

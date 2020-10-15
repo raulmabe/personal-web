@@ -1,10 +1,5 @@
 import React from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faGithubAlt,
-  faTwitter,
-  faLinkedinIn,
-} from "@fortawesome/free-brands-svg-icons";
+import { FaGithubAlt, FaTwitter, FaLinkedinIn } from "react-icons/fa";
 import { Row, Col } from "react-bootstrap";
 
 function SocialMedia() {
@@ -17,7 +12,7 @@ function SocialMedia() {
           target="_blank"
           className="text-white"
         >
-          <FontAwesomeIcon icon={faGithubAlt} size="2x" />
+          <FaGithubAlt className="icon-2x " />
         </a>
       </Col>
       <Col xs="auto">
@@ -27,7 +22,7 @@ function SocialMedia() {
           target="_blank"
           className="text-white"
         >
-          <FontAwesomeIcon icon={faTwitter} size="2x" />
+          <FaTwitter className="icon-2x " />
         </a>
       </Col>
       <Col xs="auto">
@@ -37,7 +32,7 @@ function SocialMedia() {
           target="_blank"
           className="text-white"
         >
-          <FontAwesomeIcon icon={faLinkedinIn} size="2x" />
+          <FaLinkedinIn className="icon-2x " />
         </a>
       </Col>
     </Row>

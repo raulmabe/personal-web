@@ -1,6 +1,5 @@
 import React from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faDownload } from "@fortawesome/free-solid-svg-icons";
+import { BsDownload } from "react-icons/bs";
 import { Link } from "react-router-dom";
 
 class DownloadCV extends React.Component {
@@ -12,7 +11,7 @@ class DownloadCV extends React.Component {
         target="_blank"
         download
       >
-        <FontAwesomeIcon icon={faDownload} size="1x" />
+        <BsDownload className="icon" />
         <span className="pl-2">Download CV</span>
       </Link>
     );

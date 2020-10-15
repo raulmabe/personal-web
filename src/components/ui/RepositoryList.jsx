@@ -6,8 +6,7 @@ import clsx from "clsx";
 import StepConnector from "@material-ui/core/StepConnector";
 import { format } from "date-fns";
 import { Row, Col } from "react-bootstrap";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faChevronDown, faChevronUp } from "@fortawesome/free-solid-svg-icons";
+import { FaChevronDown, FaChevronUp } from "react-icons/fa";
 
 const QontoConnector = withStyles({
   alternativeLabel: {
@@ -107,15 +106,15 @@ function RepositoryList({
             <Row className="justify-content-center">
               <Col xs="auto">
                 {index > 0 && (
-                  <a className="btn btn-link" onClick={seePrevProject}>
-                    <FontAwesomeIcon icon={faChevronUp} size="2x" />
+                  <a className="btn " onClick={seePrevProject}>
+                    <FaChevronUp className="icon" />
                   </a>
                 )}
               </Col>
               <Col xs="auto">
                 {index < projects.length - 1 && (
-                  <a className="btn btn-link" onClick={seeNextProject}>
-                    <FontAwesomeIcon icon={faChevronDown} size="2x" />
+                  <a className="btn " onClick={seeNextProject}>
+                    <FaChevronDown className="icon" />
                   </a>
                 )}
               </Col>

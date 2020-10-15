@@ -51,10 +51,10 @@ function About() {
             Universitat Politecnica de Catalunya.
             <br />
             <br />I am a self-driven person who enjoys learning and creating all
-            kinds of projects. I relish working as a team as it requires
-            communication and dedication. Moreover, I have an open mind to new
-            ideas and appreciate learning from others with more knowledge and
-            experience. Furthermore, I am a positive person who enjoys
+            kinds of projects. Not only I relish working as a team as it
+            requires communication and dedication, but also I have an open mind
+            to new ideas and appreciate learning from others with more knowledge
+            and experience. In addition, I am a positive person who enjoys
             maintaining the enthusiasm in a work environment. <br />
             <br />
             My expertise is composed of different types of projects, although I
