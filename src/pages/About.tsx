@@ -48,17 +48,18 @@ function About() {
           </Row>
           <p className="text-justify">
             Based in Barcelona, {`${myYears} old`}, currently studying at
-            Universitat Politecnica de Catalunya. <br />
+            Universitat Politecnica de Catalunya.
+            <br />
             <br />I am a self-driven person who enjoys learning and creating all
             kinds of projects. I relish working as a team as it requires
-            communication and dedication. I have an open mind to new ideas and
-            appreaciate learning from others with more knowledge and experience.
-            I am a positive person who enjoys maintaining the enthusiasm in a
-            work environment.
+            communication and dedication. Moreover, I have an open mind to new
+            ideas and appreciate learning from others with more knowledge and
+            experience. Furthermore, I am a positive person who enjoys
+            maintaining the enthusiasm in a work environment. <br />
             <br />
-            <br /> My expertise is composed of different types of projects,
-            although I enjoy the most developing beautiful cross platform mobile
-            apps based on the user experience, using{" "}
+            My expertise is composed of different types of projects, although I
+            enjoy the most developing beautiful cross platform mobile apps based
+            on the user experience, using{" "}
             <a href="https://flutter.dev/">Flutter</a>. I also have developed
             some cross platform games with the help of{" "}
             <a href="https://libgdx.badlogicgames.com/">libGDX</a>.
