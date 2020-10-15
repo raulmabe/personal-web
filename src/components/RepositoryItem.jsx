@@ -29,17 +29,21 @@ function RepositoryItem(props) {
       <Row className="justify-content-between align-items-center">
         <Col xs="12" lg="8">
           <div className="jumbotron">
-            <h1 className="display-4">{mabe == null ? name : mabe.title} </h1>
-            {isForWeb && <FaGlobe className="icon-2x align-text-bottom mx-1" />}
-            {isForAndroid && (
-              <DiAndroid className="icon-2x align-text-bottom mx-1" />
-            )}
-            {isForIOS && (
-              <FaAppStore className="icon-2x align-text-bottom mx-1" />
-            )}
-            {isForDesktop && (
-              <FaDesktop className="icon-2x align-text-bottom mx-1" />
-            )}
+            <div className="mb-4">
+              <h1 className="display-4">{mabe == null ? name : mabe.title} </h1>
+              {isForWeb && (
+                <FaGlobe className="icon-2x align-text-bottom mx-1" />
+              )}
+              {isForAndroid && (
+                <DiAndroid className="icon-2x align-text-bottom mx-1" />
+              )}
+              {isForIOS && (
+                <FaAppStore className="icon-2x align-text-bottom mx-1" />
+              )}
+              {isForDesktop && (
+                <FaDesktop className="icon-2x align-text-bottom mx-1" />
+              )}
+            </div>
 
             <p
               className="lead"
