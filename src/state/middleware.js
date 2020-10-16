@@ -23,8 +23,6 @@ export function fetchProjects() {
           return aux;
         });
 
-        console.log(newProjects);
-
         return dispatch(gotProjects(newProjects));
       })
       .catch((error) => {

@@ -32,8 +32,6 @@ function Mock(props) {
   };
 
   useEffect(() => {
-    console.log("Starting animation");
-
     fadeIn(".fadeAnimation-short", 2);
   }, []);
 

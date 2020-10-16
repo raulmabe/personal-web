@@ -4,7 +4,6 @@ import { format } from "date-fns";
 import TypedAboutMe from "../components/TypedAboutMe";
 
 function NotFound(props) {
-  console.log(props);
   let location = props.history.location.state.urlAccessed;
   return (
     <Row className="container h-75 align-items-center">

@@ -9,7 +9,7 @@ function Documentation({ readme }) {
   var string = `<h2 id="motivation">`;
   var index = markdown.indexOf(string); // Gets the first index where a space occours
   var finalHTML = markdown.substr(index - 1);
-  console.log(markdown);
+
   return (
     <div
       className="readme-box"
