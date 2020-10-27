@@ -1,6 +1,4 @@
-import { Dispatch } from "react";
 import { connect, ConnectedProps } from "react-redux";
-import { seeProject } from "../../state/actions";
 import { WebState } from "../../state/types";
 import RepositoryList from "../ui/RepositoryList";
 
@@ -14,7 +12,7 @@ const mapStateToProps = (state: WebState) => {
 const mapDispatchToProps = (dispatch: any) => {
   return {
     seeProject: (id: string) => {
-      dispatch(seeProject(id));
+      console.log("sw");
     },
   };
 };
