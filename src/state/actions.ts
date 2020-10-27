@@ -25,11 +25,3 @@ export function failedGettingProjects(): ProjectsActionTypes {
     type: FAILED_ON_GETTING_PROJECTS,
   };
 }
-
-export const SEE_A_PROJECT = "SEE_A_PROJECT";
-export function seeProject(id: string): ProjectsActionTypes {
-  return {
-    type: SEE_A_PROJECT,
-    id: id,
-  };
-}
