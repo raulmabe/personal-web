@@ -13,7 +13,7 @@ const ProjectPage: React.FC<Props> = (props: Props) => {
 
   return (
     <div>
-      Project {id} {project.name}
+      Projet {id} {project.name}
     </div>
   );
 };
