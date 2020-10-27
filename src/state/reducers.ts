@@ -1,20 +1,25 @@
+import { NEXT_PROJECT, PREV_PROJECT, SEE_A_PROJECT } from "./actions";
+
 import {
   GET_PROJECTS,
   GOT_PROJECTS,
   FAILED_ON_GETTING_PROJECTS,
-  NEXT_PROJECT,
-  PREV_PROJECT,
-  SEE_A_PROJECT,
-} from "./actions";
+  ProjectsActionTypes,
+  Project,
+  WebState,
+} from "./types";
 
-const initialState = {
+const initialState: WebState = {
   projects: [],
   projectsFetching: false,
   projectsError: false,
   activeProject: 0,
 };
 
-export function reducer(prevState = initialState, action) {
+export function reducer(
+  prevState = initialState,
+  action: ProjectsActionTypes
+): WebState {
   switch (action.type) {
     case GET_PROJECTS:
       return Object.assign({}, prevState, {
@@ -33,7 +38,7 @@ export function reducer(prevState = initialState, action) {
         projectsError: true,
         projects: [],
       });
-    case NEXT_PROJECT:
+    /* case NEXT_PROJECT:
       let nextProject = prevState.activeProject + 1;
       if (nextProject > prevState.projects.length) {
         nextProject = prevState.projects.length;
@@ -54,7 +59,7 @@ export function reducer(prevState = initialState, action) {
         return prevState;
       return Object.assign({}, prevState, {
         activeProject: action.index,
-      });
+      }); */
     default:
       return prevState;
   }

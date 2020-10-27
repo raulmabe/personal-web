@@ -1,21 +1,26 @@
+import {
+  GET_PROJECTS,
+  GOT_PROJECTS,
+  FAILED_ON_GETTING_PROJECTS,
+  ProjectsActionTypes,
+  Project,
+} from "./types";
+
 // Projects
-export const GET_PROJECTS = "GET_PROJECTS";
-export function getProjects() {
+export function getProjects(): ProjectsActionTypes {
   return {
     type: GET_PROJECTS,
   };
 }
 
-export const GOT_PROJECTS = "GOT_PROJECTS";
-export function gotProjects(projects) {
+export function gotProjects(projects: Project[]): ProjectsActionTypes {
   return {
     type: GOT_PROJECTS,
     projects,
   };
 }
 
-export const FAILED_ON_GETTING_PROJECTS = "FAILED_ON_GETTING_PROJECTS";
-export function failedGettingProjects() {
+export function failedGettingProjects(): ProjectsActionTypes {
   return {
     type: FAILED_ON_GETTING_PROJECTS,
   };

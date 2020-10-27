@@ -7,18 +7,6 @@ import "react-placeholder/lib/reactPlaceholder.css";
 
 class Projects extends React.Component {
   render() {
-    // return (
-    //   <ReactPlaceholder
-    //     showLoadingAnimation={true}
-    //     type="media"
-    //     rows={7}
-    //     ready={!this.props.projectsLoading}
-    //     customPlaceholder={<LoadingContent />}
-    //   >
-    //     <RepositoryListContainer />
-    //   </ReactPlaceholder>
-    // );
-
     if (this.props.projectsLoading) {
       return (
         <ReactPlaceholder

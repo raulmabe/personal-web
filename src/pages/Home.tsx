@@ -5,10 +5,7 @@ import DownloadCV from "../components/DownloadCV.jsx";
 import { LinkContainer } from "react-router-bootstrap";
 import Mock from "../components/Mock";
 
-
 function Home() {
-
-
   return (
     <Row className="flex-grow-1 align-items-end ">
       {/* SIDE QUOTE AND BUTTONS */}

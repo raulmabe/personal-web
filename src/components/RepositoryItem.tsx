@@ -4,8 +4,9 @@ import { Row, Col, Collapse, Button } from "react-bootstrap";
 import Mock from "./Mock";
 import { FaGithubAlt, FaGlobe, FaDesktop, FaAppStore } from "react-icons/fa";
 import { DiAndroid } from "react-icons/di";
+import { Project } from "../state/types";
 
-function RepositoryItem(props) {
+function RepositoryItem(props: Project) {
   const { name, descriptionHTML, url, readme, mabe, mocks } = props;
   const [open, setOpen] = useState(false);
 

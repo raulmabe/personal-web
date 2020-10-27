@@ -7,6 +7,7 @@ import StepConnector from "@material-ui/core/StepConnector";
 import { format } from "date-fns";
 import { Row, Col } from "react-bootstrap";
 import { FaChevronDown, FaChevronUp } from "react-icons/fa";
+import { Props } from "../containers/RepositoryListContainer";
 
 const QontoConnector = withStyles({
   alternativeLabel: {
@@ -76,23 +77,17 @@ function QontoStepIcon(props) {
   );
 }
 
-function RepositoryList({
-  projects,
-  activeProject,
-  seeNextProject,
-  seePrevProject,
-  seeProject,
-}) {
+function RepositoryList(props: Props) {
   return (
     <Stepper
-      activeStep={activeProject}
+      activeStep={props.activeProject}
       orientation="vertical"
       connector={<QontoConnector />}
     >
-      {projects.map((repo, index) => (
+      {props.projects.map((repo, index) => (
         <Step key={repo.id}>
           <StepLabel
-            onClick={() => seeProject(index)}
+            onClick={() => props.seeProject(index)}
             StepIconComponent={QontoStepIcon}
           >
             <span className="pointer-on-hover step-item">
@@ -106,14 +101,14 @@ function RepositoryList({
             <Row className="justify-content-center">
               <Col xs="auto">
                 {index > 0 && (
-                  <a className="btn " onClick={seePrevProject}>
+                  <a className="btn " onClick={props.seePrevProject}>
                     <FaChevronUp className="icon" />
                   </a>
                 )}
               </Col>
               <Col xs="auto">
-                {index < projects.length - 1 && (
-                  <a className="btn " onClick={seeNextProject}>
+                {index < props.projects.length - 1 && (
+                  <a className="btn " onClick={props.seeNextProject}>
                     <FaChevronDown className="icon" />
                   </a>
                 )}

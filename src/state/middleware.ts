@@ -1,13 +1,21 @@
 import { getProjects, gotProjects, failedGettingProjects } from "./actions";
 import axios from "axios";
+import { ThunkAction } from "redux-thunk";
+import { WebState } from "./types";
+import { Action } from "redux";
 
 const axiosServer = axios.create({
   baseURL: "https://raulmabe.dev/api/repositories",
 });
 
 // Thunk middleware
-export function fetchProjects() {
-  return function (dispatch) {
+export function fetchProjects(): ThunkAction<
+  void,
+  WebState,
+  unknown,
+  Action<string>
+> {
+  return async function (dispatch) {
     dispatch(getProjects());
 
     return axiosServer

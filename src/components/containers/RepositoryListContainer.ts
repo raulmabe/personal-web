@@ -1,19 +1,21 @@
-import { connect } from "react-redux";
+import { Dispatch } from "react";
+import { connect, ConnectedProps } from "react-redux";
 import {
   seeNextProject,
   seePreviousProject,
   seeProject,
 } from "../../state/actions";
+import { WebState } from "../../state/types";
 import RepositoryList from "../ui/RepositoryList";
 
-const mapStateToProps = (state) => {
+const mapStateToProps = (state: WebState) => {
   return {
     projects: state.projects,
     activeProject: state.activeProject,
   };
 };
 
-const mapDispatchToProps = (dispatch) => {
+const mapDispatchToProps = (dispatch: any) => {
   return {
     seeNextProject: () => {
       dispatch(seeNextProject());
@@ -27,9 +29,10 @@ const mapDispatchToProps = (dispatch) => {
   };
 };
 
-const RepositoryListContainer = connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(RepositoryList);
+const connector = connect(mapStateToProps, mapDispatchToProps);
 
-export default RepositoryListContainer;
+type PropsFromRedux = ConnectedProps<typeof connector>;
+
+export type Props = PropsFromRedux;
+
+export default connector(RepositoryList);
