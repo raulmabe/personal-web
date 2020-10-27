@@ -11,6 +11,7 @@ import { Layout } from "./components/Layout";
 import Home from "./pages/Home";
 import About from "./pages/About";
 import NotFound from "./pages/NotFound";
+import ProjectPage from "./pages/ProjectPage";
 import ProjectsContainer from "./components/containers/ProjectsContainer";
 import { createBrowserHistory } from "history";
 
@@ -25,6 +26,7 @@ function App() {
             <Route exact path="/" component={Home} />
             <Route path="/projects" component={ProjectsContainer} />
             <Route path="/about" component={About} />
+            <Route path="/project/:id" component={ProjectPage} />
             <Route path="/404" component={NotFound} />
             <Redirect
               from="*"

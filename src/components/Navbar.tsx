@@ -3,7 +3,7 @@ import { Navbar, Nav } from "react-bootstrap";
 import { withRouter } from "react-router";
 import { LinkContainer } from "react-router-bootstrap";
 
-class MyNavBar extends React.Component {
+class MyNavBar extends React.Component<any> {
   render() {
     return (
       <Navbar collapseOnSelect expand="sm" variant="dark" className="min-vh-15">

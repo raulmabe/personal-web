@@ -5,9 +5,11 @@ import Mock from "./Mock";
 import { FaGithubAlt, FaGlobe, FaDesktop, FaAppStore } from "react-icons/fa";
 import { DiAndroid } from "react-icons/di";
 import { Project } from "../state/types";
+import { format } from "date-fns";
+import { LinkContainer } from "react-router-bootstrap";
 
-function RepositoryItem(props: Project) {
-  const { name, descriptionHTML, url, readme, mabe, mocks } = props;
+function RepositoryItem(props: Project & { reversed: boolean }) {
+  const { name, descriptionHTML, url, readme, mabe, mocks, reversed } = props;
   const [open, setOpen] = useState(false);
 
   const isCodePublic = !mabe.private && url != null && url.includes("github");
@@ -31,6 +33,9 @@ function RepositoryItem(props: Project) {
         <Col xs="12" lg="8">
           <div className="jumbotron">
             <div className="mb-4">
+              <div className="subtitle-2">
+                {format(Date.parse(props.createdAt), "MMMM yyyy")}
+              </div>
               <h1 className="display-4">{mabe == null ? name : mabe.title} </h1>
               {isForWeb && (
                 <FaGlobe className="icon-2x align-text-bottom mx-1" />
@@ -82,6 +87,9 @@ function RepositoryItem(props: Project) {
               {hasFirstButton && (
                 <Col xs="12" md="auto" className="text-center my-1 my-md-0">
                   <div>
+                    {/* <LinkContainer to={`/project/${name}`}>
+                      <Button variant="outline-secondary">{"See more"}</Button>
+                    </LinkContainer> */}
                     <a
                       onClick={() => setOpen(!open)}
                       aria-controls="example-collapse-text"
@@ -100,14 +108,14 @@ function RepositoryItem(props: Project) {
               )}
               {hasAltLink && (
                 <Col xs="12" md="auto" className="text-center my-1 my-md-0">
-                  <a href={mabe.link} className="btn btn-primary">
+                  <a href={mabe.link} className="btn btn-primary bg-gradient">
                     {mabe.link_text}
                   </a>
                 </Col>
               )}
               {!hasAltLink && isCodePublic && (
                 <Col xs="12" md="auto" className="text-center my-1 my-md-0">
-                  <a href={url} className="btn btn-primary">
+                  <a href={url} className="btn btn-primary bg-gradient">
                     Check on <FaGithubAlt className="icon" />
                   </a>
                 </Col>
@@ -122,7 +130,12 @@ function RepositoryItem(props: Project) {
             )}
           </div>
         </Col>
-        <Col lg="4" className="d-none d-lg-block">
+        <Col
+          lg="4"
+          className={`d-none d-lg-block ${
+            reversed ? "order-first" : "order-last"
+          }`}
+        >
           <Mock
             size="sm"
             url={mocks instanceof Array ? mocks[0] : mocks}

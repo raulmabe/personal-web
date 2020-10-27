@@ -26,25 +26,10 @@ export function failedGettingProjects(): ProjectsActionTypes {
   };
 }
 
-// Stepper Projects
-export const NEXT_PROJECT = "NEXT_PROJECT";
-export function seeNextProject() {
-  return {
-    type: NEXT_PROJECT,
-  };
-}
-
-export const PREV_PROJECT = "PREV_PROJECT";
-export function seePreviousProject() {
-  return {
-    type: PREV_PROJECT,
-  };
-}
-
 export const SEE_A_PROJECT = "SEE_A_PROJECT";
-export function seeProject(index) {
+export function seeProject(id: string): ProjectsActionTypes {
   return {
     type: SEE_A_PROJECT,
-    index: index,
+    id: id,
   };
 }

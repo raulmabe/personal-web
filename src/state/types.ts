@@ -33,7 +33,14 @@ interface FailedOnGettingProjectsAction {
   type: typeof FAILED_ON_GETTING_PROJECTS;
 }
 
+export const SEE_A_PROJECT = "SEE_A_PROJECT";
+interface SeeProjectAction {
+  type: typeof SEE_A_PROJECT;
+  id: string;
+}
+
 export type ProjectsActionTypes =
   | GetProjectsAction
   | GotProjectsAction
-  | FailedOnGettingProjectsAction;
+  | FailedOnGettingProjectsAction
+  | SeeProjectAction;
