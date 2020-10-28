@@ -1,12 +1,24 @@
+export interface Mabe {
+  title: string;
+  version: string;
+  tag_tools: string[];
+  platforms: string[];
+  private: boolean;
+  link_images?: string | string[];
+  vertical_images?: boolean[];
+  link_videos?: string[];
+  vertical_videos?: boolean[];
+  link?: string;
+  link_text?: string;
+}
 export interface Project {
   id: string;
   createdAt: string;
-  mocks: string | string[];
   name: string;
   descriptionHTML: string;
   url: string;
   readme: string;
-  mabe: any;
+  mabe: Mabe;
 }
 
 export interface WebState {

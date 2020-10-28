@@ -3,7 +3,7 @@ import { Row, Col, Button } from "react-bootstrap";
 import FooterHome from "../components/FooterHome";
 import DownloadCV from "../components/DownloadCV.jsx";
 import { LinkContainer } from "react-router-bootstrap";
-import Mock from "../components/Mock";
+import Mock, { MockSize } from "../components/Mock";
 
 function Home() {
   return (
@@ -44,7 +44,14 @@ function Home() {
       </Col>
       {/* MockUP */}
       <Col className="align-self-center " xs="12" lg="6">
-        <Mock size="lg" />
+        <Mock
+          size={MockSize.LG}
+          vertical={true}
+          url={
+            "https://res.cloudinary.com/mabe-portfolio/video/upload/v1603889628/petsworld/video.webm"
+          }
+          isVideo={true}
+        />
       </Col>
 
       {/* Footer */}

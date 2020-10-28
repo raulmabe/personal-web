@@ -1,8 +1,9 @@
 import { getProjects, gotProjects, failedGettingProjects } from "./actions";
-import axios from "axios";
+import axios, { AxiosResponse } from "axios";
 import { ThunkAction } from "redux-thunk";
-import { WebState } from "./types";
+import { Project, WebState } from "./types";
 import { Action } from "redux";
+import util from "util";
 
 const axiosServer = axios.create({
   baseURL: "https://raulmabe.dev/api/repositories",
@@ -20,15 +21,34 @@ export function fetchProjects(): ThunkAction<
 
     return axiosServer
       .get("")
-      .then((result) => {
-        const projects = result.data;
+      .then((result: AxiosResponse<any>) => {
+        const projects: any = result.data;
 
-        const newProjects = projects.map((project) => {
-          var aux = project;
+        const newProjects: Project[] = projects.map((project: any) => {
+          var projectModel: Project = project;
 
-          aux.mocks = project.mabe.link_images;
+          console.log(util.inspect(project, false, 10, true));
+          console.log(
+            `My model: ${util.inspect(projectModel, false, 10, true)}`
+          );
 
-          return aux;
+          if (project.mabe.mocks_angle && project.mabe.mocks_angle.length > 0) {
+            const array: boolean[] = new Array(project.mabe.mocks_angle.length);
+            for (let i = 0; i < array.length; ++i) {
+              array[i] = project.mabe.mocks_angle[i] === "90";
+            }
+            projectModel.mabe.vertical_images = array;
+          } else if (project.mabe.vertical_images) {
+            projectModel.mabe.vertical_images = project.mabe.vertical_images;
+          } else {
+            const array: boolean[] = new Array(project.mabe.link_images.length);
+            array.fill(false);
+            projectModel.mabe.vertical_images = array;
+          }
+
+          console.log(`My model:${projectModel.toString()}`);
+
+          return projectModel;
         });
 
         return dispatch(gotProjects(newProjects));

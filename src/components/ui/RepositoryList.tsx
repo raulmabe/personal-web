@@ -7,7 +7,7 @@ function RepositoryList(props: Props) {
     <div>
       {props.projects.map((repo, index) => (
         <div className="repository-container">
-          <RepositoryItem {...{ ...repo, reversed: index % 2 == 0 }} />
+          <RepositoryItem {...{ ...repo, reversed: index % 2 === 0 }} />
         </div>
       ))}
     </div>

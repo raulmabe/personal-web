@@ -1,31 +1,50 @@
 import React, { useState } from "react";
 import Documentation from "./Documentation";
-import { Row, Col, Collapse, Button } from "react-bootstrap";
-import Mock from "./Mock";
+import { Row, Col, Collapse } from "react-bootstrap";
+import Mock, { MockSize } from "./Mock";
 import { FaGithubAlt, FaGlobe, FaDesktop, FaAppStore } from "react-icons/fa";
 import { DiAndroid } from "react-icons/di";
-import { Project } from "../state/types";
+import { Mabe, Project } from "../state/types";
 import { format } from "date-fns";
-import { LinkContainer } from "react-router-bootstrap";
+
+function getUrl(mabe: Mabe): string | undefined {
+  if (mabe.link_videos) {
+    return mabe.link_videos[0];
+  } else if (mabe.link_images) {
+    return mabe.link_images instanceof Array
+      ? mabe.link_images[0]
+      : mabe.link_images;
+  }
+  return undefined;
+}
+
+function getVertical(mabe: Mabe): boolean {
+  if (mabe.link_videos) {
+    return mabe.vertical_videos ? mabe.vertical_videos[0] : false;
+  } else {
+    return mabe.vertical_images ? mabe.vertical_images[0] : false;
+  }
+}
 
 function RepositoryItem(props: Project & { reversed: boolean }) {
-  const { name, descriptionHTML, url, readme, mabe, mocks, reversed } = props;
+  const { name, descriptionHTML, url, readme, mabe, reversed } = props;
   const [open, setOpen] = useState(false);
 
-  const isCodePublic = !mabe.private && url != null && url.includes("github");
+  const isCodePublic: boolean =
+    !mabe.private && url != null && url.includes("github");
 
-  const readmeExists = readme != null && readme.length > 0;
+  const readmeExists: boolean = readme != null && readme.length > 0;
 
-  const hasAltLink = mabe.link != null && mabe.link_text != null;
+  const hasAltLink: boolean = mabe.link != null && mabe.link_text != null;
 
-  const hasFirstButton = readmeExists;
-  const hasSecondButton = hasAltLink || isCodePublic;
+  const hasFirstButton: boolean = readmeExists;
+  const hasSecondButton: boolean = hasAltLink || isCodePublic;
 
   mabe.platforms = mabe.platforms.map((platform) => platform.toLowerCase());
-  const isForWeb = mabe.platforms.includes("web");
-  const isForAndroid = mabe.platforms.includes("android");
-  const isForIOS = mabe.platforms.includes("ios");
-  const isForDesktop = mabe.platforms.includes("desktop");
+  const isForWeb: boolean = mabe.platforms.includes("web");
+  const isForAndroid: boolean = mabe.platforms.includes("android");
+  const isForIOS: boolean = mabe.platforms.includes("ios");
+  const isForDesktop: boolean = mabe.platforms.includes("desktop");
 
   return (
     <div>
@@ -58,13 +77,10 @@ function RepositoryItem(props: Project & { reversed: boolean }) {
 
             <div className="d-block d-lg-none mt-5">
               <Mock
-                size="sm"
-                url={mocks instanceof Array ? mocks[0] : mocks}
-                angle={
-                  mabe.mocks_angle && mabe.mocks_angle instanceof Array
-                    ? mabe.mocks_angle[0]
-                    : mabe.mocks_angle
-                }
+                size={MockSize.SM}
+                url={getUrl(mabe)}
+                isVideo={mabe.link_videos !== undefined}
+                vertical={getVertical(mabe)}
               />
             </div>
             {isCodePublic && (
@@ -137,13 +153,10 @@ function RepositoryItem(props: Project & { reversed: boolean }) {
           }`}
         >
           <Mock
-            size="sm"
-            url={mocks instanceof Array ? mocks[0] : mocks}
-            angle={
-              mabe.mocks_angle && mabe.mocks_angle instanceof Array
-                ? mabe.mocks_angle[0]
-                : mabe.mocks_angle
-            }
+            size={MockSize.SM}
+            url={getUrl(mabe)}
+            isVideo={mabe.link_videos !== undefined}
+            vertical={getVertical(mabe)}
           />
         </Col>
       </Row>

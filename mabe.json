@@ -1,7 +1,7 @@
 {
   "title": "Single-page Application Portfolio",
   "version": "1",
-  "tag_tools": ["react", "redux", "web", "nodeJS"],
+  "tag_tools": ["react", "redux", "web", "nodeJS", "typescript"],
   "platforms": ["Web"],
   "link_images": [
     "https://res.cloudinary.com/mabe-portfolio/image/upload/v1600531040/portfolio-web.png"

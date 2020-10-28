@@ -8,7 +8,7 @@ interface Props extends RouteComponentProps<{ id: string }> {}
 const ProjectPage: React.FC<Props> = (props: Props) => {
   const id = props.match.params.id;
   const project: Project = useSelector<WebState, Project>((state) =>
-    state.projects.find((project) => project.name == id)
+    state.projects.find((project) => project.name === id)
   );
 
   return (

@@ -1,3 +1,24 @@
+video {
+  &.vertical {
+    height: 55vh;
+    display: block;
+    margin: auto;
+    margin-left: 50%;
+    transform: translate(-50%, -15%);
+    &.lg {
+      height: 70vh;
+    }
+  }
+  &.horizontal {
+    width: 60vw;
+    max-width: 40rem;
+    display: block;
+    margin: auto;
+    margin-left: 50%;
+    transform: translateX(-50%);
+  }
+}
+
 .mock-container {
   &-lg {
     overflow: visible;
@@ -8,12 +29,19 @@
     max-width: 30rem;
     max-height: 30rem;
     & img {
-      width: 60vw;
-      max-width: 40rem;
-      display: block;
-      margin: auto;
-      margin-left: 50%;
-      transform: translateX(-50%);
+      &.horizontal {
+        width: 60vw;
+        max-width: 40rem;
+        display: block;
+        margin: auto;
+        margin-left: 50%;
+        transform: translateX(-50%);
+      }
+      &.vertical {
+        height: 55vh;
+        display: block;
+        transform: translate(5%, -20%);
+      }
     }
   }
   &-sm {
@@ -26,22 +54,21 @@
     max-height: 20rem;
 
     & img {
-      width: 70vw;
-      max-width: 30rem;
-      display: block;
-      margin: auto;
-      margin-left: 50%;
-      transform: translateX(-50%);
+      &.horizontal {
+        width: 70vw;
+        max-width: 30rem;
+        display: block;
+        margin: auto;
+        margin-left: 50%;
+        transform: translateX(-50%);
+      }
+      &.vertical {
+        height: 55vh;
+        display: block;
+        margin: auto;
+        margin-left: 50%;
+        transform: translate(-50%, -20%);
+      }
     }
   }
-}
-
-img.angle-90 {
-  width: 80vw;
-  -moz-transform: rotate(90deg) !important;
-  -webkit-transform: rotate(90deg) !important;
-  -o-transform: rotate(90deg) !important;
-  -ms-transform: rotate(90deg) !important;
-  transform: rotate(90deg) !important;
-  transform-origin: 25% 10%;
 }
