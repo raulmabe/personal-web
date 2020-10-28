@@ -1,6 +1,7 @@
 video {
   &.vertical {
     height: 55vh;
+    max-width: 120%;
     display: block;
     margin: auto;
     margin-left: 50%;
@@ -28,6 +29,7 @@ video {
     width: 40vw;
     max-width: 30rem;
     max-height: 30rem;
+
     & img {
       &.horizontal {
         width: 60vw;

@@ -50,12 +50,15 @@ function Home() {
           url={
             "https://res.cloudinary.com/mabe-portfolio/video/upload/v1603889628/petsworld/video.webm"
           }
+          image_backup={
+            "https://res.cloudinary.com/mabe-portfolio/image/upload/v1603895453/petsworld/mock.png"
+          }
           isVideo={true}
         />
       </Col>
 
       {/* Footer */}
-      <Col xs="12" className="my-5 ">
+      <Col xs="12" className="my-5 pt-5 pt-lg-0">
         <FooterHome />
       </Col>
     </Row>

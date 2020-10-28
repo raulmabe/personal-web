@@ -3,6 +3,7 @@ import classNames from "classnames";
 import { Row, Col } from "react-bootstrap";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { URL } from "url";
 gsap.registerPlugin(ScrollTrigger);
 
 export enum MockSize {
@@ -15,10 +16,15 @@ interface Props {
   vertical: boolean;
   url: string;
   isVideo: boolean;
+  image_backup?: string;
+}
+
+function isVideoAvailable(isVideo: boolean): boolean {
+  return isVideo ? !!document.createElement("video").canPlayType : false;
 }
 
 function Mock(props: Props) {
-  const { size, vertical, url, isVideo } = props;
+  const { size, vertical, url, isVideo, image_backup } = props;
 
   const fadeIn = (element, duration) => {
     gsap.fromTo(
@@ -47,19 +53,32 @@ function Mock(props: Props) {
     horizontal: !vertical,
     sm: size === MockSize.SM,
     lg: size === MockSize.LG,
+    "pb-5 pb-lg-0 mb-5 mb-lg-0": vertical,
+  });
+
+  const paddingOnMobile = classNames({
+    "pb-5 pb-lg-0 mb-5 mb-lg-0": vertical,
   });
 
   return (
-    <Row className="justify-content-center align-items-center py-5 py-lg-0">
-      <Col xs="auto">
-        <div className={`mock-container-${size}`}>
-          {isVideo && (
+    <Row
+      className={`justify-content-center align-items-center py-5 py-lg-0 ${paddingOnMobile}`}
+    >
+      <Col xs="auto" className={paddingOnMobile}>
+        <div className={`mock-container-${size} `}>
+          {isVideoAvailable(isVideo) && (
             <video autoPlay loop className={classnames}>
               <source src={url} type="video/webm" />
-              Your browser does not support the video tag.
+              {image_backup && (
+                <img
+                  alt="MockUp"
+                  src={image_backup}
+                  className={classnames}
+                ></img>
+              )}
             </video>
           )}{" "}
-          {!isVideo && (
+          {!isVideoAvailable(isVideo) && (
             <img alt="MockUp" src={url} className={classnames}></img>
           )}
         </div>
