@@ -1,4 +1,12 @@
 video {
+  &[poster] {
+    &.vertical {
+      &.lg {
+        transform: translate(-50%, -10%);
+        height: 65vh;
+      }
+    }
+  }
   &.vertical {
     height: 55vh;
     max-width: 120%;

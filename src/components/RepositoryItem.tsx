@@ -80,6 +80,7 @@ function RepositoryItem(props: Project & { reversed: boolean }) {
                 size={MockSize.SM}
                 url={getUrl(mabe)}
                 isVideo={mabe.link_videos !== undefined}
+                image_backup={mabe.link_images[0]}
                 vertical={getVertical(mabe)}
               />
             </div>
@@ -156,6 +157,7 @@ function RepositoryItem(props: Project & { reversed: boolean }) {
             size={MockSize.SM}
             url={getUrl(mabe)}
             isVideo={mabe.link_videos !== undefined}
+            image_backup={mabe.link_images[0]}
             vertical={getVertical(mabe)}
           />
         </Col>

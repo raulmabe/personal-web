@@ -4,11 +4,11 @@
   "tag_tools": ["react", "redux", "web", "nodeJS"],
   "platforms": ["Web"],
   "private": false,
-  "mocks_angle": ["90"], //optional
   "link": "playstore link for example", //optional
   "link_text": "Download the app", //optional
   "vertical_image": [true, false], // optional default false
   "link_images": [], // optional
   "vertical_videos": [true, false], // optional default false
-  "link_videos": [] // optional
+  "link_videos": [], // optional
+  "mocks_angle": ["90"] //optional && deprecated
 }

@@ -67,7 +67,14 @@ function Mock(props: Props) {
       <Col xs="auto" className={paddingOnMobile}>
         <div className={`mock-container-${size} `}>
           {isVideoAvailable(isVideo) && (
-            <video autoPlay loop className={classnames}>
+            <video
+              playsInline
+              autoPlay
+              loop
+              muted
+              className={classnames}
+              poster={image_backup}
+            >
               <source src={url} type="video/webm" />
               {image_backup && (
                 <img
