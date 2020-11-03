@@ -58,7 +58,7 @@ function Home() {
       </Col>
 
       {/* Footer */}
-      <Col xs="12" className="my-5 pt-5 pt-lg-0">
+      <Col xs="12" className="mt-5 mb-2 pt-5 pt-lg-0">
         <FooterHome />
       </Col>
     </Row>

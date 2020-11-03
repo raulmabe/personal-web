@@ -6,7 +6,7 @@ function FooterHome() {
   return (
     <div className="">
       <SocialMedia />
-      <Row className="justify-content-center">
+      <Row className="justify-content-center mt-2">
         <Col xs="auto">
           <h2 className="display-2">software engineer</h2>
         </Col>

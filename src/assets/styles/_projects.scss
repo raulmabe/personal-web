@@ -37,12 +37,13 @@
 
 .tag {
   display: inline-block;
-  background-color: darken(#3c6382, 15%);
+  background-color: darken($body-bg, 2%);
+
   &:hover {
     cursor: pointer;
   }
   &.selected {
-    background-color: darken(#3c6382, 0%);
+    background-color: lighten($body-bg, 10%);
   }
   border-radius: 10%;
   & .hashtag {
