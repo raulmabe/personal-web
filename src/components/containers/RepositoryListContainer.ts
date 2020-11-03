@@ -4,19 +4,14 @@ import RepositoryList from "../ui/RepositoryList";
 
 const mapStateToProps = (state: WebState) => {
   let tags: string[] = [];
-
-  console.log(state.projects);
-
   state.projects.forEach(
     (project: Project) => (tags = tags.concat(project.mabe.tag_tools))
   );
-
   tags = tags.filter((item, index) => {
     return tags.indexOf(item) === index;
   });
 
   let projects: Project[] = state.projects;
-
   if (state.filteringByTags) {
     projects = projects.filter((project) =>
       project.mabe.tag_tools.some((tag) => state.tagsSelected.includes(tag))
