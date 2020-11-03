@@ -27,9 +27,8 @@ export function fetchProjects(): ThunkAction<
         const newProjects: Project[] = projects.map((project: any) => {
           var projectModel: Project = project;
 
-          console.log(util.inspect(project, false, 10, true));
-          console.log(
-            `My model: ${util.inspect(projectModel, false, 10, true)}`
+          projectModel.mabe.tag_tools = project.mabe.tag_tools.map((tag) =>
+            tag.toLowerCase()
           );
 
           if (project.mabe.mocks_angle && project.mabe.mocks_angle.length > 0) {
@@ -45,8 +44,6 @@ export function fetchProjects(): ThunkAction<
             array.fill(false);
             projectModel.mabe.vertical_images = array;
           }
-
-          console.log(`My model:${projectModel.toString()}`);
 
           return projectModel;
         });

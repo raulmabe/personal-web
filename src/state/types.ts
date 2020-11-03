@@ -25,7 +25,9 @@ export interface WebState {
   projects: Project[];
   projectsFetching: boolean;
   projectsError: boolean;
-  activeProject: number;
+
+  filteringByTags: boolean;
+  tagsSelected: string[];
 }
 
 // Projects Actions
@@ -49,3 +51,25 @@ export type ProjectsActionTypes =
   | GetProjectsAction
   | GotProjectsAction
   | FailedOnGettingProjectsAction;
+
+// Tag Actions
+export const ADD_TAG = "ADD_TAG";
+interface AddTag {
+  type: typeof ADD_TAG;
+  tag: string;
+}
+
+export const REMOVE_TAG = "REMOVE_TAG";
+interface RemoveTag {
+  type: typeof REMOVE_TAG;
+  tag: string;
+}
+
+export const REMOVE_FILTERING = "REMOVE_FILTERING";
+interface RemoveFiltering {
+  type: typeof REMOVE_FILTERING;
+}
+
+export type TagsActionTypes = AddTag | RemoveTag | RemoveFiltering;
+
+export type ActionTypes = TagsActionTypes | ProjectsActionTypes;

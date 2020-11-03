@@ -6,6 +6,7 @@ import { FaGithubAlt, FaGlobe, FaDesktop, FaAppStore } from "react-icons/fa";
 import { DiAndroid } from "react-icons/di";
 import { Mabe, Project } from "../state/types";
 import { format } from "date-fns";
+import Tag from "./Tag";
 
 function getUrl(mabe: Mabe): string | undefined {
   if (mabe.link_videos) {
@@ -89,7 +90,11 @@ function RepositoryItem(props: Project & { reversed: boolean }) {
                 <hr className="my-4" />
                 <Collapse in={!open} className="mb-5">
                   <div id="example-collapse-text">
-                    <p>#{mabe.tag_tools.join(" #")}</p>
+                    <p>
+                      {mabe.tag_tools.map((tool) => (
+                        <Tag key={tool} tag={tool} />
+                      ))}
+                    </p>
                     <p>
                       If you are interested in this project, or just want to
                       show appreciation for my work, consider starring the
