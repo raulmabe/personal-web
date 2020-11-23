@@ -114,3 +114,10 @@ blockquote {
     color: transparentize($white, 0.1);
   }
 }
+
+.dot {
+  height: 0.5rem;
+  width: 0.5rem;
+  display: inline-block;
+  border-radius: 100%;
+}

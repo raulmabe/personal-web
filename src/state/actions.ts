@@ -8,6 +8,7 @@ import {
   REMOVE_TAG,
   REMOVE_FILTERING,
   TagsActionTypes,
+  Statistics,
 } from "./types";
 
 // Projects
@@ -17,10 +18,14 @@ export function getProjects(): ProjectsActionTypes {
   };
 }
 
-export function gotProjects(projects: Project[]): ProjectsActionTypes {
+export function gotProjects(
+  projects: Project[],
+  stats: Statistics
+): ProjectsActionTypes {
   return {
     type: GOT_PROJECTS,
     projects,
+    stats,
   };
 }
 

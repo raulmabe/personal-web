@@ -1,9 +1,8 @@
 import { getProjects, gotProjects, failedGettingProjects } from "./actions";
 import axios, { AxiosResponse } from "axios";
 import { ThunkAction } from "redux-thunk";
-import { Project, WebState } from "./types";
+import { Project, ReposResponse, WebState } from "./types";
 import { Action } from "redux";
-import util from "util";
 
 const axiosServer = axios.create({
   baseURL: "https://raulmabe.dev/api/repositories",
@@ -22,9 +21,9 @@ export function fetchProjects(): ThunkAction<
     return axiosServer
       .get("")
       .then((result: AxiosResponse<any>) => {
-        const projects: any = result.data;
+        const response: ReposResponse = result.data;
 
-        const newProjects: Project[] = projects.map((project: any) => {
+        const newProjects: Project[] = response.projects.map((project: any) => {
           var projectModel: Project = project;
 
           projectModel.mabe.tag_tools = project.mabe.tag_tools.map((tag) =>
@@ -48,7 +47,7 @@ export function fetchProjects(): ThunkAction<
           return projectModel;
         });
 
-        return dispatch(gotProjects(newProjects));
+        return dispatch(gotProjects(newProjects, response.stats));
       })
       .catch((error) => {
         return dispatch(failedGettingProjects());

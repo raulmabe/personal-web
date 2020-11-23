@@ -1,5 +1,5 @@
 import React from "react";
-import { Row, Col, Button } from "react-bootstrap";
+import { Row, Col, Button, Nav } from "react-bootstrap";
 import FooterHome from "../components/FooterHome";
 import DownloadCV from "../components/DownloadCV.jsx";
 import { LinkContainer } from "react-router-bootstrap";
@@ -44,17 +44,21 @@ function Home() {
       </Col>
       {/* MockUP */}
       <Col className="align-self-center " xs="12" lg="6">
-        <Mock
-          size={MockSize.LG}
-          vertical={true}
-          url={
-            "https://res.cloudinary.com/mabe-portfolio/video/upload/v1603889628/petsworld/video.webm"
-          }
-          image_backup={
-            "https://res.cloudinary.com/mabe-portfolio/image/upload/v1603895453/petsworld/mock.png"
-          }
-          isVideo={true}
-        />
+        <LinkContainer to="/projects">
+          <Nav.Link active={false}>
+            <Mock
+              size={MockSize.LG}
+              vertical={true}
+              url={
+                "https://res.cloudinary.com/mabe-portfolio/video/upload/v1603889628/petsworld/video.webm"
+              }
+              image_backup={
+                "https://res.cloudinary.com/mabe-portfolio/image/upload/v1603895453/petsworld/mock.png"
+              }
+              isVideo={true}
+            />
+          </Nav.Link>
+        </LinkContainer>
       </Col>
 
       {/* Footer */}

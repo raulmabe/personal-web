@@ -20,6 +20,7 @@ const mapStateToProps = (state: WebState) => {
 
   return {
     projects: projects,
+    stats: state.stats,
     filteringByTags: state.filteringByTags,
     tags: tags,
   };

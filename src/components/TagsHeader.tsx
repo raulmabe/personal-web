@@ -8,7 +8,7 @@ interface Props {
 function TagsHeader(props: Props) {
   return props.filtering ? (
     <div className="mx-3">
-      <h5>Filtering by:</h5>
+      <h5 className="text-muted">Filtering by:</h5>
       <p>
         {props.tags.map((tag) => (
           <Tag key={tag} tag={tag} />

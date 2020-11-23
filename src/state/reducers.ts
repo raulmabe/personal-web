@@ -11,8 +11,8 @@ import {
 
 const initialState: WebState = {
   projects: [],
-  projectsFetching: false,
-  projectsError: false,
+  isLoading: false,
+  error: false,
   filteringByTags: false,
   tagsSelected: [],
 };
@@ -24,19 +24,20 @@ export function reducer(
   switch (action.type) {
     case GET_PROJECTS:
       return Object.assign({}, prevState, {
-        projectsFetching: true,
-        projectsError: false,
+        isLoading: true,
+        error: false,
       });
     case GOT_PROJECTS:
       return Object.assign({}, prevState, {
-        projectsFetching: false,
+        isLoading: false,
         projects: action.projects,
-        projectsError: false,
+        stats: action.stats,
+        error: false,
       });
     case FAILED_ON_GETTING_PROJECTS:
       return Object.assign({}, prevState, {
-        projectsFetching: false,
-        projectsError: true,
+        isLoading: false,
+        error: true,
         projects: [],
       });
 

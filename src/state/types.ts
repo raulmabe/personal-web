@@ -1,3 +1,28 @@
+export interface ReposResponse {
+  projects: Project[];
+  stats: Statistics;
+}
+
+export interface Statistics {
+  lately: Language[];
+  ever: [number, Language][];
+}
+export interface Project {
+  id: string;
+  name: string;
+  descriptionHTML: string;
+  createdAt: string;
+  url: string;
+  isPrivate: boolean;
+  stargazers: number;
+  languages: Language[];
+  readme: string;
+  mabe: Mabe;
+}
+export interface Language {
+  color: string;
+  name: string;
+}
 export interface Mabe {
   title: string;
   version: string;
@@ -11,20 +36,12 @@ export interface Mabe {
   link?: string;
   link_text?: string;
 }
-export interface Project {
-  id: string;
-  createdAt: string;
-  name: string;
-  descriptionHTML: string;
-  url: string;
-  readme: string;
-  mabe: Mabe;
-}
 
 export interface WebState {
   projects: Project[];
-  projectsFetching: boolean;
-  projectsError: boolean;
+  stats?: Statistics;
+  isLoading: boolean;
+  error: boolean;
 
   filteringByTags: boolean;
   tagsSelected: string[];
@@ -40,6 +57,7 @@ export const GOT_PROJECTS = "GOT_PROJECTS";
 interface GotProjectsAction {
   type: typeof GOT_PROJECTS;
   projects: Project[];
+  stats: Statistics;
 }
 
 export const FAILED_ON_GETTING_PROJECTS = "FAILED_ON_GETTING_PROJECTS";
