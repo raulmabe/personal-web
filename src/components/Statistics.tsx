@@ -7,7 +7,7 @@ interface Props {
 
 function StatisticsHeader(props: Props) {
   return (
-    <div className="statistics px-5 py-3">
+    <div className="statistics mx-3 p-3 px-md-5">
       <p>
         <span className="text-uppercase  text-muted">Lately using</span>
         {props.stats.lately.map((language) => (
