@@ -25,7 +25,8 @@ function StatisticsHeader(props: Props) {
               tuple[1].name !== "Swift" &&
               tuple[1].name !== "Kotlin" &&
               tuple[1].name !== "Makefile" &&
-              tuple[1].name !== "CoffeeScript"
+              tuple[1].name !== "CoffeeScript" &&
+              tuple[1].name !== "Ruby"
           )
           .sort((tupleA, tupleB) => {
             return tupleA[0] > tupleB[0] ? -1 : 1;
