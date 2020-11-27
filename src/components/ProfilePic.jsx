@@ -30,7 +30,7 @@ function ProfilePic({ size }) {
       <img
         alt="ProfilePic"
         className={size}
-        src="https://res.cloudinary.com/mabe-portfolio/image/upload/v1600530494/about_me.png"
+        src="https://res.cloudinary.com/mabe-portfolio/image/upload/e_grayscale/v1606476582/temp/Sin_nombre_zqbdvq.png"
       ></img>
     </div>
   ) : (
@@ -39,7 +39,7 @@ function ProfilePic({ size }) {
         <img
           alt="ProfilePic"
           className={size}
-          src="https://res.cloudinary.com/mabe-portfolio/image/upload/v1600530494/about_me.png"
+          src="https://res.cloudinary.com/mabe-portfolio/image/upload/e_grayscale/v1606476582/temp/Sin_nombre_zqbdvq.png"
         ></img>
       </div>
     </div>

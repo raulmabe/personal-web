@@ -24,6 +24,9 @@ $extra-space: 5rem;
   position: relative;
   margin: auto;
 
+  display: flex;
+  justify-content: center;
+
   overflow: hidden;
   height: $height-sm-img-perfil;
   width: $height-sm-img-perfil;
@@ -33,9 +36,10 @@ $extra-space: 5rem;
 }
 
 .img-perfil img {
+  object-fit: cover;
+  margin-left: 1rem;
   display: block;
   height: $height-lg-img-perfil + $extra-space;
-  transform: scale(1.2);
 }
 
 .img-perfil img.sm {
