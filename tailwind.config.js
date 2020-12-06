@@ -1,4 +1,10 @@
 module.exports = {
+  purge: [
+    "./src/**/*.js",
+    "./src/**/*.jsx",
+    "./src/**/*.tsx",
+    "./public/index.html",
+  ],
   darkMode: "class",
   theme: {
     extend: {
