@@ -9,9 +9,10 @@ class Projects extends React.Component {
       return <LoadingContent />;
     } else if (this.props.errorFetchingProjects) {
       return (
-        <div className="flex flex-row justify-center items-center">
-          <div className="bg-gray-100 rounded-2xl text-gray-800 px-4 py-4 shadow-xl">
-            <h3 className="my-2">My projects are unavailable</h3>
+        <div className="flex flex-row justify-start items-center">
+          <div className="mx-20 flex flex-col">
+            <h1 className="my-2">My projects are unavailable</h1>
+
             <div className=" h-0.5 bg-gray-700 opacity-25 rounded-full w-full  my-2"></div>
             <p>I am doing some tweakings in my back-end. Try again later!</p>
             <p className="mb-0">
@@ -20,7 +21,7 @@ class Projects extends React.Component {
                 href="https://github.com/Rahuvich"
                 rel="noopener noreferrer"
                 target="_blank"
-                className="text-primary-blue"
+                className="text-primary-blue px-0"
               >
                 my Github
               </a>

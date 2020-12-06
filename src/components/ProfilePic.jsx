@@ -28,7 +28,7 @@ function ProfilePic({ size }) {
   return (
     <div
       className={`relative -left-20 top-20 inline-block h-48 w-48 overflow-visible ${
-        size != "sm" ? "bg-gradient" : ""
+        size !== "sm" ? "bg-gradient" : ""
       } rounded-full`}
     >
       <img

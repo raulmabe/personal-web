@@ -8,7 +8,7 @@ interface Props {
 
 function WebMock(props: Props) {
   return (
-    <div className="rounded-xl inline-block max-w-screen-sm my-10 sm:my-0 mx-10 bg-pink-200">
+    <div className="rounded-xl inline-block max-w-screen-sm my-10 sm:my-0 mx-10 bg-pink-200 shadow-xl">
       <div
         className="py-2 grid items-center gap-6 px-4 rounded-t-xl sm:rounded-tr-xl bg-gray-100"
         style={{

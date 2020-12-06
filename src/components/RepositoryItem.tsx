@@ -6,7 +6,7 @@ import { DiAndroid } from "react-icons/di";
 import { Mabe, Project } from "../state/types";
 import { format } from "date-fns";
 import Tag from "./Tag";
-import LanguageItem from "./Language";
+/* import LanguageItem from "./Language"; */
 
 function getImage(mabe: Mabe): string | undefined {
   if (mabe.assets_is_image) {
@@ -16,18 +16,12 @@ function getImage(mabe: Mabe): string | undefined {
   }
 }
 
-function getVideo(mabe: Mabe): string | undefined {
-  if (mabe.assets_is_image) {
-    return mabe.assets[mabe.assets_is_image.indexOf(false)];
-  }
-}
-
 function RepositoryItem(props: Project & { reversed: boolean }) {
   const {
     name,
     descriptionHTML,
     url,
-    languages,
+    /*   languages, */
     readme,
     mabe,
     reversed,
@@ -93,7 +87,7 @@ function RepositoryItem(props: Project & { reversed: boolean }) {
             isVideo={
               mabe.assets_is_image !== undefined &&
               mabe.assets_is_image.length > 0 &&
-              mabe.assets_is_image[0]
+              !mabe.assets_is_image[0]
             }
             image_backup={getImage(mabe)}
             vertical={
@@ -170,7 +164,7 @@ function RepositoryItem(props: Project & { reversed: boolean }) {
           isVideo={
             mabe.assets_is_image !== undefined &&
             mabe.assets_is_image.length > 0 &&
-            mabe.assets_is_image[0]
+            !mabe.assets_is_image[0]
           }
           image_backup={getImage(mabe)}
           vertical={

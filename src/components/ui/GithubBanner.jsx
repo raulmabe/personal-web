@@ -1,5 +1,5 @@
 import React from "react";
-import { FaGithubAlt } from "react-icons/fa";
+/* import { FaGithubAlt } from "react-icons/fa"; */
 import { AiOutlineInfoCircle } from "react-icons/ai";
 
 const GithubBanner = () => (
