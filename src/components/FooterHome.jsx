@@ -6,7 +6,7 @@ function FooterHome() {
     <div className="my-5 flex flex-col justify-center items-center space-y-4">
       <SocialMedia />
       <div className="flex flex-row justify-content-center">
-        <h2 className="tracking-widest uppercase font-thin">
+        <h2 className="tracking-widest uppercase font-thin text-center">
           software engineer
         </h2>
       </div>
