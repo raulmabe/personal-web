@@ -1,31 +1,43 @@
 import React from "react";
-import { Navbar, Nav } from "react-bootstrap";
 import { withRouter } from "react-router";
-import { LinkContainer } from "react-router-bootstrap";
+import { Link } from "react-router-dom";
 
 class MyNavBar extends React.Component<any> {
+  props: any;
   render() {
     return (
-      <Navbar collapseOnSelect expand="sm" variant="dark" className="min-vh-15">
-        <LinkContainer exact to="/">
-          <Navbar.Brand>
-            MA
-            <br />
-            BE.
-          </Navbar.Brand>
-        </LinkContainer>
-        <Navbar.Toggle aria-controls="responsive-navbar-nav" />
-        <Navbar.Collapse className="justify-content-end">
-          <Nav className="justify-content-end">
-            <LinkContainer to="/projects">
-              <Nav.Link active={false}>{"projects".toUpperCase()}</Nav.Link>
-            </LinkContainer>
-            <LinkContainer to="/about">
-              <Nav.Link active={false}>{"about me".toUpperCase()}</Nav.Link>
-            </LinkContainer>
-          </Nav>
-        </Navbar.Collapse>
-      </Navbar>
+      <div className="flex flex-row justify-between items-center px-10 md:px-20 py-10 uppercase tracking-widest">
+        <Link
+          to="/"
+          className="flex flex-col monospaced font-extrabold text-xl"
+        >
+          M A
+          <br />B E
+        </Link>
+
+        <div className="flex flex-row md:space-x-8">
+          <Link
+            to="/projects"
+            className={
+              this.props.location.pathname === "/projects"
+                ? "text-white font-medium"
+                : "text-gray-300"
+            }
+          >
+            projects
+          </Link>
+          <Link
+            to="/about"
+            className={
+              this.props.location.pathname === "/about"
+                ? "text-white font-medium"
+                : "text-gray-300 "
+            }
+          >
+            about
+          </Link>
+        </div>
+      </div>
     );
   }
 }

@@ -6,11 +6,11 @@ interface Props {
 
 function LanguageItem(props: Props) {
   return (
-    <span className="d-inline-block">
+    <span className="inline-block">
       <span
-        className="dot mx-2 align-middle"
+        className="h-2 w-2 rounded-full inline-block align-middle mr-2"
         style={{ backgroundColor: props.lang.color }}
-      />
+      ></span>
       {props.lang.name}
     </span>
   );

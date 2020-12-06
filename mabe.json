@@ -3,8 +3,12 @@
   "version": "1",
   "tag_tools": ["react", "redux", "nodeJS", "typescript", "graphql", "express"],
   "platforms": ["Web"],
-  "link_images": [
-    "https://res.cloudinary.com/mabe-portfolio/image/upload/v1600531040/portfolio-web.png"
+  "url": "raulmabe.dev",
+
+  "assets": [
+    "https://res.cloudinary.com/mabe-portfolio/image/upload/v1607278415/portfolio/PortfolioWeb.png"
   ],
-  "private": false
+  "assets_is_vertical": [false],
+  "assets_is_image": [true],
+  "assets_platform": ["web"]
 }

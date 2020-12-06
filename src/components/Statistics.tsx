@@ -7,15 +7,19 @@ interface Props {
 
 function StatisticsHeader(props: Props) {
   return (
-    <div className="statistics mx-3 p-3 px-md-5">
-      <p>
-        <span className="text-uppercase  text-muted">Lately using</span>
+    <div className="flex flex-col space-y-5 bg-dark-darker rounded-3xl mx-5 md:mx-20 px-5 md:px-10 py-5">
+      <div>
+        <span className="uppercase text-gray-400 font-normal">
+          Lately using
+        </span>
         {props.stats.lately.map((language) => (
-          <LanguageItem key={language.name} lang={language} />
+          <div className="mx-2 inline-block">
+            <LanguageItem key={language.name} lang={language} />
+          </div>
         ))}
-      </p>
-      <p>
-        <span className="text-uppercase  text-muted">Summary</span>
+      </div>
+      <div>
+        <span className="uppercase text-gray-400 font-normal">Summary</span>
         {props.stats.ever
           .filter(
             (tuple) =>
@@ -32,12 +36,12 @@ function StatisticsHeader(props: Props) {
             return tupleA[0] > tupleB[0] ? -1 : 1;
           })
           .map((tuple) => (
-            <div className="d-inline">
+            <div className="inline mx-2">
               <LanguageItem key={tuple[1].name} lang={tuple[1]} /> on{" "}
               {`${tuple[0]} ${tuple[0] > 1 ? "projects" : "project"}`}
             </div>
           ))}
-      </p>
+      </div>
     </div>
   );
 }

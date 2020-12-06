@@ -26,15 +26,18 @@ export interface Language {
 export interface Mabe {
   title: string;
   version: string;
+  url?: string;
   tag_tools: string[];
   platforms: string[];
   private: boolean;
-  link_images?: string | string[];
-  vertical_images?: boolean[];
-  link_videos?: string[];
-  vertical_videos?: boolean[];
+
   link?: string;
   link_text?: string;
+
+  assets: string[];
+  assets_is_vertical?: boolean[];
+  assets_is_image?: boolean[];
+  assets_platform: string[];
 }
 
 export interface WebState {

@@ -1,34 +1,37 @@
 import React, { useState } from "react";
 import Documentation from "./Documentation";
-import { Row, Col, Collapse } from "react-bootstrap";
 import Mock, { MockSize } from "./Mock";
 import { FaGithubAlt, FaGlobe, FaDesktop, FaAppStore } from "react-icons/fa";
 import { DiAndroid } from "react-icons/di";
 import { Mabe, Project } from "../state/types";
 import { format } from "date-fns";
 import Tag from "./Tag";
+import LanguageItem from "./Language";
 
-function getUrl(mabe: Mabe): string | undefined {
-  if (mabe.link_videos) {
-    return mabe.link_videos[0];
-  } else if (mabe.link_images) {
-    return mabe.link_images instanceof Array
-      ? mabe.link_images[0]
-      : mabe.link_images;
+function getImage(mabe: Mabe): string | undefined {
+  if (mabe.assets_is_image) {
+    return mabe.assets[mabe.assets_is_image.indexOf(true)];
+  } else {
+    return mabe.assets[0];
   }
-  return undefined;
 }
 
-function getVertical(mabe: Mabe): boolean {
-  if (mabe.link_videos) {
-    return mabe.vertical_videos ? mabe.vertical_videos[0] : false;
-  } else {
-    return mabe.vertical_images ? mabe.vertical_images[0] : false;
+function getVideo(mabe: Mabe): string | undefined {
+  if (mabe.assets_is_image) {
+    return mabe.assets[mabe.assets_is_image.indexOf(false)];
   }
 }
 
 function RepositoryItem(props: Project & { reversed: boolean }) {
-  const { name, descriptionHTML, url, readme, mabe, reversed } = props;
+  const {
+    name,
+    descriptionHTML,
+    url,
+    languages,
+    readme,
+    mabe,
+    reversed,
+  } = props;
   const [open, setOpen] = useState(false);
 
   const isCodePublic: boolean =
@@ -48,125 +51,135 @@ function RepositoryItem(props: Project & { reversed: boolean }) {
   const isForDesktop: boolean = mabe.platforms.includes("desktop");
 
   return (
-    <div>
-      <Row className="justify-content-between align-items-center">
-        <Col xs="12" lg="8">
-          <div className="jumbotron">
-            <div className="mb-4">
-              <div className="subtitle-2">
-                {format(Date.parse(props.createdAt), "MMMM yyyy")}
-              </div>
-              <h1 className="display-4">{mabe == null ? name : mabe.title} </h1>
-              {isForWeb && (
-                <FaGlobe className="icon-2x align-text-bottom mx-1" />
-              )}
-              {isForAndroid && (
-                <DiAndroid className="icon-2x align-text-bottom mx-1" />
-              )}
-              {isForIOS && (
-                <FaAppStore className="icon-2x align-text-bottom mx-1" />
-              )}
-              {isForDesktop && (
-                <FaDesktop className="icon-2x align-text-bottom mx-1" />
-              )}
-            </div>
-
-            <p
-              className="lead"
-              dangerouslySetInnerHTML={{ __html: descriptionHTML }}
-            ></p>
-
-            <div className="d-block d-lg-none mt-5">
-              <Mock
-                size={MockSize.SM}
-                url={getUrl(mabe)}
-                isVideo={mabe.link_videos !== undefined}
-                image_backup={mabe.link_images[0]}
-                vertical={getVertical(mabe)}
-              />
-            </div>
-            {isCodePublic && (
-              <div>
-                <hr className="my-4" />
-                <Collapse in={!open} className="mb-5">
-                  <div id="example-collapse-text">
-                    <p>
-                      {mabe.tag_tools.map((tool) => (
-                        <Tag key={tool} tag={tool} />
-                      ))}
-                    </p>
-                    <p>
-                      If you are interested in this project, or just want to
-                      show appreciation for my work, consider starring the
-                      repository on Github!
-                    </p>
-                  </div>
-                </Collapse>
-              </div>
+    <div className="flex flex-row justify-center items-center my-5 md:my-10">
+      <div className="flex flex-col px-10  md:w-2/3">
+        <h3 className=" font-normal text-gray-400">
+          {format(Date.parse(props.createdAt), "MMMM yyyy")}
+        </h3>
+        <div className="mb-6 flex flex-row items-center">
+          <h1 className="inline">{mabe == null ? name : mabe.title} </h1>
+          <div className="flex flex-grow">
+            {isForWeb && <FaGlobe className="text-3xl inline-block ml-2" />}
+            {isForAndroid && (
+              <DiAndroid className="text-3xl inline-block ml-2" />
             )}
-
-            <Row className="justify-content-center">
-              {hasFirstButton && (
-                <Col xs="12" md="auto" className="text-center my-1 my-md-0">
-                  <div>
-                    {/* <LinkContainer to={`/project/${name}`}>
-                      <Button variant="outline-secondary">{"See more"}</Button>
-                    </LinkContainer> */}
-                    <a
-                      onClick={() => setOpen(!open)}
-                      aria-controls="example-collapse-text"
-                      aria-expanded={open}
-                      className="btn btn-outline-light"
-                    >
-                      {open ? "See less" : "See more"}
-                    </a>
-                  </div>
-                </Col>
-              )}
-              {hasSecondButton && hasFirstButton && (
-                <Col xs="12" md="auto" className="text-center my-1 my-md-0">
-                  <i>- or -</i>
-                </Col>
-              )}
-              {hasAltLink && (
-                <Col xs="12" md="auto" className="text-center my-1 my-md-0">
-                  <a href={mabe.link} className="btn btn-primary bg-gradient">
-                    {mabe.link_text}
-                  </a>
-                </Col>
-              )}
-              {!hasAltLink && isCodePublic && (
-                <Col xs="12" md="auto" className="text-center my-1 my-md-0">
-                  <a href={url} className="btn btn-primary bg-gradient">
-                    Check on <FaGithubAlt className="icon" />
-                  </a>
-                </Col>
-              )}
-            </Row>
-            {readmeExists && (
-              <Collapse in={open} className="mt-3">
-                <div id="example-collapse-text">
-                  <Documentation readme={readme} />
-                </div>
-              </Collapse>
+            {isForIOS && <FaAppStore className="text-3xl inline-block ml-2" />}
+            {isForDesktop && (
+              <FaDesktop className="text-3xl inline-block ml-2" />
             )}
           </div>
-        </Col>
-        <Col
-          lg="4"
-          className={`d-none d-lg-block ${
-            reversed ? "order-first" : "order-last"
-          }`}
-        >
+        </div>
+
+        {/* <p className="my-2">
+          {languages.map((language) => (
+            <div className="mx-2 inline-block">
+              <LanguageItem key={language.name} lang={language} />
+            </div>
+          ))}
+        </p> */}
+
+        <p
+          className="text-xl"
+          dangerouslySetInnerHTML={{ __html: descriptionHTML }}
+        />
+
+        <div className="block lg:hidden self-center ">
           <Mock
             size={MockSize.SM}
-            url={getUrl(mabe)}
-            isVideo={mabe.link_videos !== undefined}
-            image_backup={mabe.link_images[0]}
-            vertical={getVertical(mabe)}
+            isWeb={isForWeb}
+            isDesktop={isForDesktop}
+            urlImage={mabe.assets[0]}
+            urlMock={mabe.url}
+            isVideo={
+              mabe.assets_is_image !== undefined &&
+              mabe.assets_is_image.length > 0 &&
+              mabe.assets_is_image[0]
+            }
+            image_backup={getImage(mabe)}
+            vertical={
+              mabe.assets_is_vertical !== undefined &&
+              mabe.assets_is_vertical.length > 0 &&
+              mabe.assets_is_vertical[0]
+            }
           />
-        </Col>
-      </Row>
+        </div>
+        {isCodePublic && (
+          <div>
+            <hr className="my-8" />
+            <div className="mb-5">
+              <div className={open ? "hidden" : ""}>
+                <p className="my-5">
+                  {mabe.tag_tools.map((tool) => (
+                    <Tag key={tool} tag={tool} />
+                  ))}
+                </p>
+                <p>
+                  If you are interested in this project, or just want to show
+                  appreciation for my work, consider starring the repository on
+                  Github!
+                </p>
+              </div>
+            </div>
+          </div>
+        )}
+
+        <div className="flex flex-col md:flex-row items-center justify-center space-y-2 md:space-y-0 md:space-x-6 my-1 md:my-0">
+          {hasFirstButton && (
+            <div>
+              <a
+                onClick={() => setOpen(!open)}
+                aria-controls="example-collapse-text"
+                aria-expanded={open}
+                className="btn btn-outline"
+              >
+                {open ? "See less" : "See more"}
+              </a>
+            </div>
+          )}
+          {hasSecondButton && hasFirstButton && <i>- or -</i>}
+          {hasAltLink && (
+            <a href={mabe.link} className="btn btn-primary bg-gradient">
+              {mabe.link_text}
+            </a>
+          )}
+          {!hasAltLink && isCodePublic && (
+            <a href={url} className="btn btn-primary bg-gradient">
+              Check on <FaGithubAlt className="inline-block ml-2" />
+            </a>
+          )}
+        </div>
+        {readmeExists && (
+          <div /* in={open} */ className="mt-3">
+            <div className={open ? "" : "hidden"}>
+              <Documentation readme={readme} />
+            </div>
+          </div>
+        )}
+      </div>
+      <div
+        className={`hidden lg:flex flex-grow items-center justify-center ${
+          reversed ? "order-first" : "order-last"
+        }`}
+      >
+        <Mock
+          size={MockSize.SM}
+          isWeb={isForWeb}
+          isDesktop={isForDesktop}
+          urlImage={mabe.assets[0]}
+          urlMock={mabe.url}
+          isVideo={
+            mabe.assets_is_image !== undefined &&
+            mabe.assets_is_image.length > 0 &&
+            mabe.assets_is_image[0]
+          }
+          image_backup={getImage(mabe)}
+          vertical={
+            mabe.assets_is_vertical !== undefined &&
+            mabe.assets_is_vertical.length > 0 &&
+            mabe.assets_is_vertical[0]
+          }
+        />
+      </div>
     </div>
   );
 }

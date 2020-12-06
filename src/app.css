@@ -1,0 +1,60 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,600;1,700;1,800;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Open+Sans:300,400,700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inconsolata:wght@200;300;400;500&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    font-family: "Open Sans", "Nunito", "Helvetica Neue", Helvetica, sans-serif;
+    @apply bg-dark subpixel-antialiased font-light;
+  }
+
+  h1 {
+    @apply text-5xl font-thin;
+  }
+  h2 {
+    @apply text-4xl mb-3;
+  }
+
+  h3 {
+    @apply text-3xl;
+  }
+
+  h4 {
+    @apply text-2xl;
+  }
+
+  p {
+    @apply text-justify mb-4;
+  }
+
+  a {
+    @apply px-4 py-1;
+  }
+
+  .bg-gradient {
+    @apply bg-gradient-to-r from-secondary-blue to-primary-blue;
+  }
+
+  .grid-nav-content {
+    @apply grid;
+    grid-template-rows: auto 1fr;
+  }
+
+  .monospaced {
+    font-family: "Inconsolata", monospace;
+  }
+}
+
+@layer components {
+  .btn {
+    @apply cursor-pointer px-4 py-2 uppercase align-middle tracking-widest rounded-full text-sm text-center font-normal flex flex-row items-center;
+  }
+
+  .btn-outline {
+    @apply border dark:border-gray-100 border-dark;
+  }
+}

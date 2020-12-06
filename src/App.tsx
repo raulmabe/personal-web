@@ -1,5 +1,4 @@
 import React from "react";
-import "./App.scss";
 import {
   BrowserRouter as Router,
   Route,
@@ -7,7 +6,6 @@ import {
   Redirect,
 } from "react-router-dom";
 import NavbarWithRouter from "./components/Navbar";
-import { Layout } from "./components/Layout";
 import Home from "./pages/Home";
 import About from "./pages/About";
 import NotFound from "./pages/NotFound";
@@ -18,10 +16,10 @@ import { createBrowserHistory } from "history";
 function App() {
   const history = createBrowserHistory();
   return (
-    <div className="px-sm-5 min-vh-100">
+    <div className="dark">
       <Router>
-        <NavbarWithRouter />
-        <Layout>
+        <div className="dark:bg-dark bg-gray-50 min-h-screen grid-nav-content dark:text-gray-200 text-gray-800">
+          <NavbarWithRouter />
           <Switch>
             <Route exact path="/" component={Home} />
             <Route path="/projects" component={ProjectsContainer} />
@@ -39,7 +37,7 @@ function App() {
               }}
             />
           </Switch>
-        </Layout>
+        </div>
       </Router>
     </div>
   );

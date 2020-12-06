@@ -1,16 +1,15 @@
 import React from "react";
-import { Row, Col } from "react-bootstrap";
 import SocialMedia from "./SocialMedia";
 
 function FooterHome() {
   return (
-    <div className="">
+    <div className="my-5 flex flex-col justify-center items-center space-y-4">
       <SocialMedia />
-      <Row className="justify-content-center mt-2">
-        <Col xs="auto">
-          <h2 className="display-2">software engineer</h2>
-        </Col>
-      </Row>
+      <div className="flex flex-row justify-content-center">
+        <h2 className="tracking-widest uppercase font-thin">
+          software engineer
+        </h2>
+      </div>
     </div>
   );
 }

@@ -25,23 +25,17 @@ function ProfilePic({ size }) {
     fadeIn(".fadeAnimation-short", 2);
   }, []);
 
-  return size === "sm" ? (
-    <div className="img-perfil fadeAnimation-short">
+  return (
+    <div
+      className={`relative -left-20 top-20 inline-block h-48 w-48 overflow-visible ${
+        size != "sm" ? "bg-gradient" : ""
+      } rounded-full`}
+    >
       <img
         alt="ProfilePic"
-        className={size}
+        className="absolute -top-24 left-24 rounded-full h-48 w-48 transform scale-125 fadeAnimation-short border-8 border-dark object-cover"
         src="https://res.cloudinary.com/mabe-portfolio/image/upload/e_grayscale/v1606476582/temp/Sin_nombre_zqbdvq.png"
-      ></img>
-    </div>
-  ) : (
-    <div className="img-perfil-box d-inline-block ">
-      <div className="img-perfil fadeAnimation-short">
-        <img
-          alt="ProfilePic"
-          className={size}
-          src="https://res.cloudinary.com/mabe-portfolio/image/upload/e_grayscale/v1606476582/temp/Sin_nombre_zqbdvq.png"
-        ></img>
-      </div>
+      />
     </div>
   );
 }

@@ -1,9 +1,9 @@
 import React, { useEffect } from "react";
 import classNames from "classnames";
-import { Row, Col } from "react-bootstrap";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { URL } from "url";
+import WebMock from "./ui/mocks/WebMock";
+import DesktopMock from "./ui/mocks/DesktopMock";
 gsap.registerPlugin(ScrollTrigger);
 
 export enum MockSize {
@@ -14,9 +14,12 @@ export enum MockSize {
 interface Props {
   size: MockSize;
   vertical: boolean;
-  url: string;
+  urlImage: string;
+  urlMock?: string;
   isVideo: boolean;
   image_backup?: string;
+  isWeb: boolean;
+  isDesktop: boolean;
 }
 
 function isVideoAvailable(isVideo: boolean): boolean {
@@ -24,7 +27,15 @@ function isVideoAvailable(isVideo: boolean): boolean {
 }
 
 function Mock(props: Props) {
-  const { size, vertical, url, isVideo, image_backup } = props;
+  const {
+    size,
+    vertical,
+    urlImage,
+    isVideo,
+    image_backup,
+    isWeb,
+    isDesktop,
+  } = props;
 
   const fadeIn = (element, duration) => {
     gsap.fromTo(
@@ -42,55 +53,75 @@ function Mock(props: Props) {
       }
     );
   };
-  /* 
-  useEffect(() => {
-    fadeIn(".fadeAnimation-short", 2);
-  }, []); */
 
-  const classnames = classNames({
+  const mockClasses = classNames({
+    "bg-gradient rounded-full flex flex-row justify-center items-start": true,
+    "h-96 w-96": size === MockSize.LG,
+    "h-72 w-72": size === MockSize.SM,
+    "my-16": vertical && size === MockSize.SM,
+    "my-8": !vertical && size === MockSize.SM,
+    "my-32": vertical && size === MockSize.LG,
+  });
+
+  const imageClasses = classNames({
     "fadeAnimation-short": true,
-    vertical: vertical,
-    horizontal: !vertical,
-    sm: size === MockSize.SM,
-    lg: size === MockSize.LG,
-    "pb-5 pb-lg-0 mb-5 mb-lg-0": vertical,
+    "w-52 transform -translate-y-10": vertical && size === MockSize.SM,
+    "w-72 transform -translate-y-32": vertical && size === MockSize.LG,
+    "transform scale-125 translate-y-10": !vertical && size === MockSize.SM,
+    "h-72": !vertical && size === MockSize.LG,
   });
 
-  const paddingOnMobile = classNames({
-    "pb-5 pb-lg-0 mb-5 mb-lg-0": vertical,
-  });
+  if (isWeb) {
+    return (
+      <WebMock url={props.urlMock}>
+        {isVideoAvailable(isVideo) && (
+          <video playsInline autoPlay loop muted poster={image_backup}>
+            <source src={urlImage} type="video/webm" />
+            {image_backup && <img alt="MockUp" src={image_backup}></img>}
+          </video>
+        )}
+
+        {!isVideoAvailable(isVideo) && <img alt="MockUp" src={urlImage}></img>}
+      </WebMock>
+    );
+  }
+
+  if (isDesktop) {
+    return (
+      <DesktopMock>
+        {isVideoAvailable(isVideo) && (
+          <video playsInline autoPlay loop muted poster={image_backup}>
+            <source src={urlImage} type="video/webm" />
+            {image_backup && <img alt="MockUp" src={image_backup}></img>}
+          </video>
+        )}
+
+        {!isVideoAvailable(isVideo) && <img alt="MockUp" src={urlImage}></img>}
+      </DesktopMock>
+    );
+  }
 
   return (
-    <Row
-      className={`justify-content-center align-items-center py-5 py-lg-0 ${paddingOnMobile}`}
-    >
-      <Col xs="auto" className={paddingOnMobile}>
-        <div className={`mock-container-${size} `}>
-          {isVideoAvailable(isVideo) && (
-            <video
-              playsInline
-              autoPlay
-              loop
-              muted
-              className={classnames}
-              poster={image_backup}
-            >
-              <source src={url} type="video/webm" />
-              {image_backup && (
-                <img
-                  alt="MockUp"
-                  src={image_backup}
-                  className={classnames}
-                ></img>
-              )}
-            </video>
-          )}{" "}
-          {!isVideoAvailable(isVideo) && (
-            <img alt="MockUp" src={url} className={classnames}></img>
+    <div className={mockClasses}>
+      {isVideoAvailable(isVideo) && (
+        <video
+          playsInline
+          autoPlay
+          loop
+          muted
+          className={imageClasses}
+          poster={image_backup}
+        >
+          <source src={urlImage} type="video/webm" />
+          {image_backup && (
+            <img alt="MockUp" src={image_backup} className={imageClasses}></img>
           )}
-        </div>
-      </Col>
-    </Row>
+        </video>
+      )}
+      {!isVideoAvailable(isVideo) && (
+        <img alt="MockUp" src={urlImage} className={imageClasses}></img>
+      )}
+    </div>
   );
 }
 

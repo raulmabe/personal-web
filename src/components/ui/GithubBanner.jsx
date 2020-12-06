@@ -1,9 +1,11 @@
 import React from "react";
 import { FaGithubAlt } from "react-icons/fa";
+import { AiOutlineInfoCircle } from "react-icons/ai";
 
 const GithubBanner = () => (
-  <div className="github-banner">
-    fetched from <FaGithubAlt className="icon pb-1" />
+  <div className="fixed flex flex-row items-center right-0 bottom-0 bg-dark-lighter px-2 py-3 rounded-tl-xl">
+    <AiOutlineInfoCircle className="inline-block mr-2 transform scale-125" />{" "}
+    fetched from Github
   </div>
 );
 

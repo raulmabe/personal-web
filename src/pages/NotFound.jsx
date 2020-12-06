@@ -1,13 +1,12 @@
 import React from "react";
-import { Row, Col } from "react-bootstrap";
 import { format } from "date-fns";
 import TypedAboutMe from "../components/TypedAboutMe";
 
 function NotFound(props) {
   let location = props.history.location.state.urlAccessed;
   return (
-    <Row className="container h-75 align-items-center">
-      <Col className="terminal-font">
+    <div className="container h-75 align-items-center">
+      <div className="terminal-font">
         <span className="bash-prompt">bash-4.2</span>$ curl www.raulmabe.dev
         {location} -I
         <br />
@@ -20,8 +19,8 @@ function NotFound(props) {
         <br />
         <span className="bash-prompt">bash-4.2</span>${" "}
         <TypedAboutMe strings={["", ""]} />
-      </Col>
-    </Row>
+      </div>
+    </div>
   );
 }
 

@@ -30,20 +30,6 @@ export function fetchProjects(): ThunkAction<
             tag.toLowerCase()
           );
 
-          if (project.mabe.mocks_angle && project.mabe.mocks_angle.length > 0) {
-            const array: boolean[] = new Array(project.mabe.mocks_angle.length);
-            for (let i = 0; i < array.length; ++i) {
-              array[i] = project.mabe.mocks_angle[i] === "90";
-            }
-            projectModel.mabe.vertical_images = array;
-          } else if (project.mabe.vertical_images) {
-            projectModel.mabe.vertical_images = project.mabe.vertical_images;
-          } else {
-            const array: boolean[] = new Array(project.mabe.link_images.length);
-            array.fill(false);
-            projectModel.mabe.vertical_images = array;
-          }
-
           return projectModel;
         });
 

@@ -1,55 +1,45 @@
 import React from "react";
-import { Row, Col, Button, Nav } from "react-bootstrap";
 import FooterHome from "../components/FooterHome";
-import DownloadCV from "../components/DownloadCV.jsx";
-import { LinkContainer } from "react-router-bootstrap";
 import Mock, { MockSize } from "../components/Mock";
+import { Link } from "react-router-dom";
+import { FiDownload } from "react-icons/fi";
 
 function Home() {
   return (
-    <Row className="flex-grow-1 align-items-end ">
-      {/* SIDE QUOTE AND BUTTONS */}
-      <Col className="align-self-center " xs="12" lg="6">
-        <Row className="align-center justify-content-center">
-          <Col xs="9">
-            <h3>
-              <blockquote className="">
-                {`More than not achieving my goals,\nwhat frightens me the most is to stop having them`}
-              </blockquote>
+    <div className="flex flex-col ">
+      <div className="flex flex-row flex-wrap md:flex-nowrap flex-grow justify-center ">
+        {/* SIDE QUOTE AND BUTTONS */}
+        <div className="flex flex-col w-full md:w-1/2 justify-center space-y-10 md:space-y-24 items-center">
+          <div className="w-2/3 dark:text-white flex flex-col">
+            <h3 className="italic font-normal mb-3">
+              {`"More than not achieving my goals,\nwhat frightens me the most is to stop having them"`}
             </h3>
-          </Col>
-        </Row>
-        <Row className="justify-content-end">
-          <Col xs="4">
-            <h4>{`- unsigned`}</h4>
-          </Col>
-        </Row>
-        <Row className="mt-lg-5 pt-5 justify-content-center">
-          <Col xs="12" lg="auto" className="text-center mt-2 my-lg-0">
-            <LinkContainer to="/about">
-              <Button variant="outline-secondary">
-                {"learn about me".toUpperCase()}
-              </Button>
-            </LinkContainer>
-          </Col>
-          <Col xs="12" lg="auto" className="text-center my-1 my-lg-0">
+            <h3 className="inline-block  text-right ">{`- unsigned`}</h3>
+          </div>
+          <div className="flex flex-col md:flex-row space-y-4 md:space-y-0 w-full items-center justify-center space-x-0 md:space-x-6">
+            <Link to="/about" className="btn btn-outline">
+              learn about me
+            </Link>
             <i>- or -</i>
-          </Col>
-          <Col xs="12" lg="auto" className="text-center mb-5 my-lg-0">
-            <span className="mx-3">
-              <DownloadCV />
-            </span>
-          </Col>
-        </Row>
-      </Col>
-      {/* MockUP */}
-      <Col className="align-self-center " xs="12" lg="6">
-        <LinkContainer to="/projects">
-          <Nav.Link active={false}>
+            <Link
+              to="/assets/CVRaulMateo.pdf"
+              className="btn btn-primary bg-gradient"
+              target="_blank"
+            >
+              <FiDownload className="text-xl inline-block" />
+              <span className="pl-2">Download CV</span>
+            </Link>
+          </div>
+        </div>
+        {/* MockUP */}
+        <div className="w-1/2 flex flex-col justify-center items-center">
+          <Link to="/projects">
             <Mock
+              isDesktop={false}
+              isWeb={false}
               size={MockSize.LG}
               vertical={true}
-              url={
+              urlImage={
                 "https://res.cloudinary.com/mabe-portfolio/video/upload/v1603889628/petsworld/video.webm"
               }
               image_backup={
@@ -57,15 +47,13 @@ function Home() {
               }
               isVideo={true}
             />
-          </Nav.Link>
-        </LinkContainer>
-      </Col>
-
-      {/* Footer */}
-      <Col xs="12" className="mt-5 mb-2 pt-5 pt-lg-0">
+          </Link>
+        </div>
+      </div>
+      <div className="flex flex-col">
         <FooterHome />
-      </Col>
-    </Row>
+      </div>
+    </div>
   );
 }
 

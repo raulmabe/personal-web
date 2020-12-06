@@ -16,8 +16,9 @@ function Tag(props: Props) {
   const tagsDispatch = useDispatch<Dispatch<TagsActionTypes>>();
 
   const classnames = classNames({
-    "tag m-1 p-1": true,
-    selected: isSelected,
+    "m-1 p-1 cursor-pointer rounded-lg inline-block": true,
+    "bg-dark-darker": !isSelected,
+    "bg-dark-lighter": isSelected,
   });
   return (
     <span
@@ -29,7 +30,7 @@ function Tag(props: Props) {
         })
       }
     >
-      <span className="hashtag"># </span>
+      <span className="text-gray-300 "># </span>
       {props.tag}
     </span>
   );

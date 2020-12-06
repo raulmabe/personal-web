@@ -8,6 +8,7 @@ type TypedAboutMeProps = {
 class TypedAboutMe extends React.Component<TypedAboutMeProps> {
   element: any;
   typed: any;
+  props: TypedAboutMeProps;
 
   componentDidMount() {
     const { strings } = this.props;
@@ -32,14 +33,12 @@ class TypedAboutMe extends React.Component<TypedAboutMeProps> {
 
   render() {
     return (
-      <div className="d-inline typed-wrap">
-        <span
-          className="text-primary display-1"
-          ref={(el) => {
-            this.element = el;
-          }}
-        ></span>
-      </div>
+      <span
+        className="inline text-primary-blue"
+        ref={(el) => {
+          this.element = el;
+        }}
+      />
     );
   }
 }

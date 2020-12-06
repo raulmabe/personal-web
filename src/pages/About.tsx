@@ -1,5 +1,4 @@
 import React from "react";
-import { Row, Col } from "react-bootstrap";
 import TypedAboutMe from "../components/TypedAboutMe";
 import { formatDistanceStrict } from "date-fns";
 import SocialMedia from "../components/SocialMedia";
@@ -12,43 +11,29 @@ function About() {
   });
 
   return (
-    <div className="container-fluid h-100">
-      <Row className="justify-content-center">
-        <Col xs="12" className="text-center">
-          <h1 className="display-1">
-            About
-            <TypedAboutMe strings={["Me", "Apps", "Games"]}></TypedAboutMe>
-          </h1>
-        </Col>
-      </Row>
-      <Row className="h-75 flex-grow-1 align-items-center justify-content-around mb-5 ">
-        <Col xs="4" className="text-center d-none d-lg-block">
+    <div className="flex flex-col h-full space-y-14 md:space-y-24 mx-10 ">
+      <h1 className="inline-block text-center  uppercase">
+        About
+        <TypedAboutMe
+          strings={["Me", "Apps", "Games", "dev", "design", "code"]}
+        />
+      </h1>
+      <div className="flex flex-row">
+        <div className="hidden md:flex flex-col space-y-32 items-center justify-center flex-grow ">
           <ProfilePic size="lg" />
-          <div className="d-block mt-4">
-            <SocialMedia />
-          </div>
-        </Col>
-        <Col xs="12" lg="7">
-          <div className="d-lg-none my-2">
+          <SocialMedia />
+        </div>
+        <div className="flex flex-col md:px-10  md:w-2/3 items-center md:items-start">
+          <div className="md:hidden my-2">
             <ProfilePic size="sm" />
           </div>
-          <Row className="subtitle my-3">
-            <Col
-              xs="12"
-              lg="auto"
-              className="text-center"
-            >{`I am Raul Mateo Beneyto,`}</Col>
-          </Row>
-          <Row className="subtitle-2 my-3">
-            <Col
-              xs="12"
-              lg="auto"
-              className="text-center"
-            >{`Software Engineering Student`}</Col>
-          </Row>
-          <p className="text-justify">
-            Based in Barcelona, {`${myYears} old`}, currently studying at
-            Universitat Politecnica de Catalunya.
+          <h3 className="text-center font-semibold">
+            I am Raul Mateo Beneyto,
+          </h3>
+          <h4 className="text-center text-gray-400 my-5">Software Engineer</h4>
+          <p className="text-justify font-normal text-lg">
+            Based in Barcelona, {`${myYears} old`}, recently graduated from
+            Universitat Politècnica de Catalunya.
             <br />
             <br />I am a self-driven person who enjoys learning and creating all
             kinds of projects. Not only I relish working as a team as it
@@ -60,17 +45,23 @@ function About() {
             My expertise is composed of different types of projects, although I
             enjoy the most developing beautiful cross platform mobile apps based
             on the user experience, using{" "}
-            <a href="https://flutter.dev/">Flutter</a>. I also have developed
-            some cross platform games with the help of{" "}
-            <a href="https://libgdx.badlogicgames.com/">libGDX</a>.
+            <a className="px-0 text-primary-blue" href="https://flutter.dev/">
+              Flutter
+            </a>
+            . I also have developed some cross platform games with the help of{" "}
+            <a
+              className="px-0 text-primary-blue"
+              href="https://libgdx.badlogicgames.com/"
+            >
+              libGDX
+            </a>
+            .
           </p>
-        </Col>
-      </Row>
-      <Row className="d-lg-none justify-content-center pt-5">
-        <Col xs="auto" className="text-center">
-          <SocialMedia />
-        </Col>
-      </Row>
+        </div>
+      </div>
+      <div className="md:hidden text-center mb-5 pb-5">
+        <SocialMedia />
+      </div>
     </div>
   );
 }

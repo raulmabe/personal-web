@@ -2,11 +2,10 @@ import React from "react";
 import Tag from "./Tag";
 interface Props {
   tags: string[];
-  filtering: boolean;
 }
 
 function TagsHeader(props: Props) {
-  return props.filtering ? (
+  return (
     <div className="mx-3">
       <h5 className="text-muted">Filtering by:</h5>
       <p>
@@ -15,8 +14,6 @@ function TagsHeader(props: Props) {
         ))}
       </p>
     </div>
-  ) : (
-    <div></div>
   );
 }
 

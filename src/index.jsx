@@ -6,6 +6,7 @@ import { Provider } from "react-redux";
 import { reducer } from "./state/reducers";
 import thunkMiddleware from "redux-thunk";
 import { fetchProjects } from "./state/middleware";
+import "./app.css";
 
 const store = createStore(reducer, applyMiddleware(thunkMiddleware));
 
