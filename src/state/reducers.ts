@@ -7,10 +7,15 @@ import {
   ADD_TAG,
   REMOVE_TAG,
   REMOVE_FILTERING,
+  Sort,
+  CHANGE_SORT,
+  Project,
+  Mabe,
 } from "./types";
 
 const initialState: WebState = {
   projects: [],
+  sort: Sort.DATE_DESC,
   isLoading: false,
   error: false,
   filteringByTags: false,
@@ -30,15 +35,22 @@ export function reducer(
     case GOT_PROJECTS:
       return Object.assign({}, prevState, {
         isLoading: false,
-        projects: action.projects,
+        projects: sortProjects(action.projects, Sort.RELEVANCE),
         stats: action.stats,
         error: false,
+        sort: Sort.RELEVANCE,
       });
     case FAILED_ON_GETTING_PROJECTS:
       return Object.assign({}, prevState, {
         isLoading: false,
         error: true,
         projects: [],
+      });
+
+    case CHANGE_SORT:
+      return Object.assign({}, prevState, {
+        sort: action.sort,
+        projects: sortProjects(prevState.projects, action.sort),
       });
 
     case ADD_TAG:
@@ -66,4 +78,44 @@ export function reducer(
     default:
       return prevState;
   }
+}
+
+function sortProjects(projects: Project[], sort: Sort) {
+  if (sort === Sort.DATE_ASC) {
+    return projects.sort((project1, project2) => {
+      if (project1.createdAt > project2.createdAt) return 1;
+      else return -1;
+    });
+  } else if (sort === Sort.DATE_DESC) {
+    return projects.sort((project1, project2) => {
+      if (project1.createdAt < project2.createdAt) return 1;
+      else return -1;
+    });
+  } else if (sort === Sort.RELEVANCE) {
+    return projects.sort((project1, project2) => {
+      if (!project1.mabe.assets_is_image && project2.mabe.assets_is_image)
+        return 1;
+      if (project1.mabe.assets_is_image && !project2.mabe.assets_is_image)
+        return -1;
+
+      if (project1.mabe.assets_is_image && project2.mabe.assets_is_image) {
+        if (isMockVideo(project1.mabe, 0) && !isMockVideo(project2.mabe, 0))
+          return -1;
+        if (!isMockVideo(project1.mabe, 0) && isMockVideo(project2.mabe, 0))
+          return 1;
+      }
+
+      if (project1.createdAt > project2.createdAt) return -1;
+      else return 0;
+    });
+  }
+  return projects;
+}
+
+function isMockVideo(mabe: Mabe, index: number): boolean {
+  return (
+    mabe.assets_is_image !== undefined &&
+    mabe.assets_is_image.length > 0 &&
+    !mabe.assets_is_image[index]
+  );
 }

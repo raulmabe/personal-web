@@ -1,6 +1,6 @@
 import React from "react";
 import FooterHome from "../components/FooterHome";
-import Mock, { MockType } from "../components/Mock";
+import Mock, { MockType } from "../components/ui/mocks/Mock";
 import { Link } from "react-router-dom";
 import { FiDownload } from "react-icons/fi";
 import Asset from "../components/ui/mocks/Asset";
@@ -37,6 +37,7 @@ function Home() {
           <Mock type={MockType.MOBILE_Y}>
             <Link to="/projects" className="text-center p-0">
               <Asset
+                image_backup="https://res.cloudinary.com/mabe-portfolio/image/upload/v1607359634/petsworld/portada_hme9c4.jpg"
                 vertical={true}
                 isVideo={true}
                 url="https://res.cloudinary.com/mabe-portfolio/video/upload/v1607356140/petsworld/tfg_app_yi8cwz.webm"

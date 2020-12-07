@@ -1,10 +1,9 @@
 import React, { useEffect } from "react";
-import classNames from "classnames";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import WebMock from "./ui/mocks/WebMock";
-import DesktopMock from "./ui/mocks/DesktopMock";
-import MobileMock from "./ui/mocks/MobileMock";
+import WebMock from "./WebMock";
+import DesktopMock from "./DesktopMock";
+import MobileMock from "./MobileMock";
 gsap.registerPlugin(ScrollTrigger);
 
 export enum MockType {
@@ -31,7 +30,9 @@ function Mock(props: Props) {
     return <DesktopMock>{children}</DesktopMock>;
   }
 
-  return <MobileMock>{children}</MobileMock>;
+  return (
+    <MobileMock vertical={type === MockType.MOBILE_Y}>{children}</MobileMock>
+  );
 }
 
 export default Mock;

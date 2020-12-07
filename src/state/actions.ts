@@ -9,6 +9,8 @@ import {
   REMOVE_FILTERING,
   TagsActionTypes,
   Statistics,
+  Sort,
+  CHANGE_SORT,
 } from "./types";
 
 // Projects
@@ -32,6 +34,13 @@ export function gotProjects(
 export function failedGettingProjects(): ProjectsActionTypes {
   return {
     type: FAILED_ON_GETTING_PROJECTS,
+  };
+}
+
+export function changeSort(sort: Sort): ProjectsActionTypes {
+  return {
+    type: CHANGE_SORT,
+    sort,
   };
 }
 

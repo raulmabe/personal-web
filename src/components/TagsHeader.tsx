@@ -6,7 +6,7 @@ interface Props {
 
 function TagsHeader(props: Props) {
   return (
-    <div className="mx-5 md:mx-20">
+    <div>
       <h5 className="font-semibold">Filtering by:</h5>
       <p>
         {props.tags.map((tag) => (

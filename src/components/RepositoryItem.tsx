@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Documentation from "./Documentation";
-import Mock, { MockType } from "./Mock";
+import Mock, { MockType } from "./ui/mocks/Mock";
 import { FaGithubAlt, FaGlobe, FaDesktop, FaAppStore } from "react-icons/fa";
 import { DiAndroid } from "react-icons/di";
 import { Mabe, Project } from "../state/types";
@@ -14,6 +14,38 @@ function getImage(mabe: Mabe): string | undefined {
     return mabe.assets[mabe.assets_is_image.indexOf(true)];
   } else {
     return mabe.assets[0];
+  }
+}
+
+function isMockVertical(mabe: Mabe, index: number): boolean {
+  return (
+    mabe.assets_is_vertical !== undefined &&
+    mabe.assets_is_vertical.length > 0 &&
+    mabe.assets_is_vertical[index]
+  );
+}
+
+function isMockVideo(mabe: Mabe, index: number): boolean {
+  return (
+    mabe.assets_is_image !== undefined &&
+    mabe.assets_is_image.length > 0 &&
+    !mabe.assets_is_image[index]
+  );
+}
+
+function getMockType(mabe: Mabe, index: number): MockType {
+  if (mabe.assets_platform && mabe.assets_platform.length > 0) {
+    if (mabe.assets_platform[index].toLowerCase() === "web")
+      return MockType.WEB;
+    else if (mabe.assets_platform[index].toLowerCase() === "desktop")
+      return MockType.DESKTOP;
+    else if (isMockVertical(mabe, index)) return MockType.MOBILE_Y;
+    else return MockType.MOBILE_X;
+  } else {
+    if (mabe.platforms.includes("web")) return MockType.WEB;
+    else if (mabe.platforms.includes("desktop")) return MockType.DESKTOP;
+    else if (isMockVertical(mabe, index)) return MockType.MOBILE_Y;
+    else return MockType.MOBILE_X;
   }
 }
 
@@ -44,15 +76,11 @@ function RepositoryItem(props: Project & { reversed: boolean }) {
   const isForAndroid: boolean = mabe.platforms.includes("android");
   const isForIOS: boolean = mabe.platforms.includes("ios");
   const isForDesktop: boolean = mabe.platforms.includes("desktop");
-  const isMockVertical: boolean =
-    mabe.assets_is_vertical !== undefined &&
-    mabe.assets_is_vertical.length > 0 &&
-    mabe.assets_is_vertical[0];
 
   return (
     <div className="flex flex-row justify-center items-center my-5 md:my-10">
       <div
-        className={`flex flex-col px-10  md:w-2/3 ${
+        className={`flex flex-col px-10  md:w-3/4  ${
           !reversed ? "items-end text-right" : "items-start"
         }`}
       >
@@ -89,25 +117,10 @@ function RepositoryItem(props: Project & { reversed: boolean }) {
         />
 
         <div className="block  lg:hidden self-center">
-          <Mock
-            type={
-              isForWeb
-                ? MockType.WEB
-                : isForDesktop
-                ? MockType.DESKTOP
-                : isMockVertical
-                ? MockType.MOBILE_Y
-                : MockType.MOBILE_X
-            }
-            urlMock={mabe.url}
-          >
+          <Mock type={getMockType(mabe, 0)} urlMock={mabe.url}>
             <Asset
-              isVideo={
-                mabe.assets_is_image !== undefined &&
-                mabe.assets_is_image.length > 0 &&
-                !mabe.assets_is_image[0]
-              }
-              vertical={isMockVertical}
+              isVideo={isMockVideo(mabe, 0)}
+              vertical={isMockVertical(mabe, 0)}
               url={mabe.assets[0]}
               image_backup={getImage(mabe)}
             />
@@ -145,7 +158,7 @@ function RepositoryItem(props: Project & { reversed: boolean }) {
             <hr className="my-8" />
             <div className="mb-5">
               <div className={open ? "hidden" : ""}>
-                <p className="my-5">
+                <p className={`my-5 ${reversed ? "" : "text-right"}`}>
                   {mabe.tag_tools.map((tool) => (
                     <Tag key={tool} tag={tool} />
                   ))}
@@ -173,25 +186,10 @@ function RepositoryItem(props: Project & { reversed: boolean }) {
           reversed ? "order-first" : "order-last"
         }`}
       >
-        <Mock
-          type={
-            isForWeb
-              ? MockType.WEB
-              : isForDesktop
-              ? MockType.DESKTOP
-              : isMockVertical
-              ? MockType.MOBILE_Y
-              : MockType.MOBILE_X
-          }
-          urlMock={mabe.url}
-        >
+        <Mock type={getMockType(mabe, 0)} urlMock={mabe.url}>
           <Asset
-            isVideo={
-              mabe.assets_is_image !== undefined &&
-              mabe.assets_is_image.length > 0 &&
-              !mabe.assets_is_image[0]
-            }
-            vertical={isMockVertical}
+            isVideo={isMockVideo(mabe, 0)}
+            vertical={isMockVertical(mabe, 0)}
             url={mabe.assets[0]}
             image_backup={getImage(mabe)}
           />

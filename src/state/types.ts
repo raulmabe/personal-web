@@ -1,3 +1,9 @@
+export enum Sort {
+  RELEVANCE = "RELEVANCE",
+  DATE_ASC = "DATE ASC",
+  DATE_DESC = "DATE DESC",
+}
+
 export interface ReposResponse {
   projects: Project[];
   stats: Statistics;
@@ -42,6 +48,7 @@ export interface Mabe {
 
 export interface WebState {
   projects: Project[];
+  sort: Sort;
   stats?: Statistics;
   isLoading: boolean;
   error: boolean;
@@ -68,10 +75,18 @@ interface FailedOnGettingProjectsAction {
   type: typeof FAILED_ON_GETTING_PROJECTS;
 }
 
+// Sort Actions
+export const CHANGE_SORT = "CHANGE_SORT";
+interface ChangeSort {
+  type: typeof CHANGE_SORT;
+  sort: Sort;
+}
+
 export type ProjectsActionTypes =
   | GetProjectsAction
   | GotProjectsAction
-  | FailedOnGettingProjectsAction;
+  | FailedOnGettingProjectsAction
+  | ChangeSort;
 
 // Tag Actions
 export const ADD_TAG = "ADD_TAG";
