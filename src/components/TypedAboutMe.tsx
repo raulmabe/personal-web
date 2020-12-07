@@ -34,7 +34,7 @@ class TypedAboutMe extends React.Component<TypedAboutMeProps> {
   render() {
     return (
       <span
-        className="inline text-primary-blue"
+        className="inline text-primary-blue font-semibold"
         ref={(el) => {
           this.element = el;
         }}

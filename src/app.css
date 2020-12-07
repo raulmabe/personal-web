@@ -9,22 +9,23 @@
 @layer base {
   body {
     font-family: "Open Sans", "Nunito", "Helvetica Neue", Helvetica, sans-serif;
-    @apply bg-dark subpixel-antialiased font-light;
+    @apply bg-dark  font-normal antialiased;
+    -webkit-tap-highlight-color: transparent;
   }
 
   h1 {
-    @apply text-5xl font-thin;
+    @apply text-4xl  md:text-5xl font-thin;
   }
   h2 {
-    @apply text-4xl mb-3;
+    @apply text-3xl md:text-4xl mb-3;
   }
 
   h3 {
-    @apply text-3xl;
+    @apply text-2xl md:text-3xl;
   }
 
   h4 {
-    @apply text-2xl;
+    @apply text-xl md:text-2xl;
   }
 
   p {
@@ -32,11 +33,18 @@
   }
 
   a {
-    @apply px-4 py-1;
+    @apply px-4 py-1 focus:outline-none font-normal;
+  }
+
+  p > a {
+    @apply text-primary-blue px-0 font-medium;
   }
 
   .bg-gradient {
-    @apply bg-gradient-to-r from-secondary-blue to-primary-blue;
+    @apply bg-gradient-to-tr from-secondary-blue to-primary-blue;
+  }
+  .text-gradient {
+    @apply bg-clip-text bg-gradient text-transparent;
   }
 
   .grid-nav-content {
@@ -51,10 +59,14 @@
 
 @layer components {
   .btn {
-    @apply cursor-pointer px-4 py-2 uppercase align-middle tracking-widest rounded-full text-sm text-center font-normal flex flex-row items-center;
+    @apply cursor-pointer px-4 py-2 uppercase align-middle tracking-widest rounded-full text-sm text-center font-normal flex flex-row items-center focus:outline-none shadow focus:shadow-none transform hover:-translate-y-1 transition duration-300 ease-in-out hover:shadow-lg;
   }
 
   .btn-outline {
     @apply border dark:border-gray-100 border-dark;
+  }
+
+  .btn-primary {
+    @apply bg-gradient text-white;
   }
 }

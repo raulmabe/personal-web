@@ -18,7 +18,7 @@ function App() {
   return (
     <div className="dark">
       <Router>
-        <div className="dark:bg-dark bg-gray-50 min-h-screen grid-nav-content dark:text-gray-200 text-gray-800">
+        <div className="dark:bg-dark bg-white min-h-screen grid-nav-content dark:text-gray-200 text-blue-dark">
           <NavbarWithRouter />
           <Switch>
             <Route exact path="/" component={Home} />

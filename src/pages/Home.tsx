@@ -1,8 +1,9 @@
 import React from "react";
 import FooterHome from "../components/FooterHome";
-import Mock, { MockSize } from "../components/Mock";
+import Mock, { MockType } from "../components/Mock";
 import { Link } from "react-router-dom";
 import { FiDownload } from "react-icons/fi";
+import Asset from "../components/ui/mocks/Asset";
 
 function Home() {
   return (
@@ -23,7 +24,7 @@ function Home() {
             <i>- or -</i>
             <Link
               to="/assets/CVRaulMateo.pdf"
-              className="btn btn-primary bg-gradient"
+              className="btn btn-primary"
               target="_blank"
             >
               <FiDownload className="text-xl inline-block" />
@@ -32,22 +33,16 @@ function Home() {
           </div>
         </div>
         {/* MockUP */}
-        <div className="w-1/2 flex flex-col justify-center items-center">
-          <Link to="/projects">
-            <Mock
-              isDesktop={false}
-              isWeb={false}
-              size={MockSize.LG}
-              vertical={true}
-              urlImage={
-                "https://res.cloudinary.com/mabe-portfolio/video/upload/v1603889628/petsworld/video.webm"
-              }
-              image_backup={
-                "https://res.cloudinary.com/mabe-portfolio/image/upload/v1603895453/petsworld/mock.png"
-              }
-              isVideo={true}
-            />
-          </Link>
+        <div className="w-full md:w-1/2 flex flex-col justify-center items-center">
+          <Mock type={MockType.MOBILE_Y}>
+            <Link to="/projects" className="text-center p-0">
+              <Asset
+                vertical={true}
+                isVideo={true}
+                url="https://res.cloudinary.com/mabe-portfolio/video/upload/v1607356140/petsworld/tfg_app_yi8cwz.webm"
+              />
+            </Link>
+          </Mock>
         </div>
       </div>
       <div className="flex flex-col">

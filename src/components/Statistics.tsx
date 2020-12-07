@@ -7,9 +7,9 @@ interface Props {
 
 function StatisticsHeader(props: Props) {
   return (
-    <div className="flex flex-col space-y-5 bg-dark-darker rounded-3xl mx-5 md:mx-20 px-5 md:px-10 py-5">
+    <div className="flex flex-col space-y-5 dark:bg-dark-darker bg-gray-100 rounded-3xl mx-5 md:mx-20 px-5 md:px-10 py-5">
       <div>
-        <span className="uppercase text-gray-400 font-normal">
+        <span className="uppercase dark:text-gray-400 dark:font-normal font-semibold">
           Lately using
         </span>
         {props.stats.lately.map((language) => (
@@ -19,7 +19,9 @@ function StatisticsHeader(props: Props) {
         ))}
       </div>
       <div>
-        <span className="uppercase text-gray-400 font-normal">Summary</span>
+        <span className="uppercase dark:text-gray-400 dark:font-normal font-semibold">
+          Summary
+        </span>
         {props.stats.ever
           .filter(
             (tuple) =>

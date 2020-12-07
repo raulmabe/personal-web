@@ -11,12 +11,10 @@ function About() {
   });
 
   return (
-    <div className="flex flex-col h-full space-y-14 md:space-y-24 mx-10 ">
-      <h1 className="inline-block text-center  uppercase">
+    <div className="flex flex-col h-full space-y-14 md:space-y-24 mx-5 md:mx-10 ">
+      <h1 className="inline-block text-center  uppercase font-normal">
         About
-        <TypedAboutMe
-          strings={["Me", "Apps", "Games", "dev", "design", "code"]}
-        />
+        <TypedAboutMe strings={["Me", "Apps", "Games", "web", "dev", "code"]} />
       </h1>
       <div className="flex flex-row">
         <div className="hidden md:flex flex-col space-y-32 items-center justify-center flex-grow ">
@@ -30,7 +28,9 @@ function About() {
           <h3 className="text-center font-semibold">
             I am Raul Mateo Beneyto,
           </h3>
-          <h4 className="text-center text-gray-400 my-5">Software Engineer</h4>
+          <h4 className="text-center text-gray-400 my-5 font-medium tracking-widest uppercase">
+            Software Engineer
+          </h4>
           <p className="text-justify font-normal text-lg">
             Based in Barcelona, {`${myYears} old`}, recently graduated from
             Universitat Politècnica de Catalunya.
@@ -45,17 +45,9 @@ function About() {
             My expertise is composed of different types of projects, although I
             enjoy the most developing beautiful cross platform mobile apps based
             on the user experience, using{" "}
-            <a className="px-0 text-primary-blue" href="https://flutter.dev/">
-              Flutter
-            </a>
-            . I also have developed some cross platform games with the help of{" "}
-            <a
-              className="px-0 text-primary-blue"
-              href="https://libgdx.badlogicgames.com/"
-            >
-              libGDX
-            </a>
-            .
+            <a href="https://flutter.dev/">Flutter</a>. I also have developed
+            some cross platform games with the help of{" "}
+            <a href="https://libgdx.badlogicgames.com/">libGDX</a>.
           </p>
         </div>
       </div>

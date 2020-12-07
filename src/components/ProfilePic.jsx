@@ -33,7 +33,7 @@ function ProfilePic({ size }) {
     >
       <img
         alt="ProfilePic"
-        className="absolute -top-24 left-24 rounded-full h-48 w-48 transform scale-125 fadeAnimation-short border-8 border-dark object-cover"
+        className="absolute -top-24 left-24 rounded-full h-48 w-48 transform scale-125 border-8 ring-0 border-white dark:border-dark object-cover"
         src="https://res.cloudinary.com/mabe-portfolio/image/upload/e_grayscale/v1606476582/temp/Sin_nombre_zqbdvq.png"
       />
     </div>
