@@ -7,8 +7,8 @@ import Asset from "../components/ui/mocks/Asset";
 
 function Home() {
   return (
-    <div className="flex flex-col ">
-      <div className="flex flex-row flex-wrap md:flex-nowrap flex-grow justify-center ">
+    <div className="flex flex-col items-center">
+      <div className="flex flex-row flex-wrap md:flex-nowrap flex-grow justify-center max-w-screen-2xl">
         {/* SIDE QUOTE AND BUTTONS */}
         <div className="flex flex-col w-full md:w-1/2 justify-center space-y-10 md:space-y-24 items-center">
           <div className="w-2/3 dark:text-white flex flex-col">

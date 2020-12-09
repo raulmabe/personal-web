@@ -8,17 +8,19 @@ import SortHeader from "../SortHeader";
 
 function RepositoryList(props: Props) {
   return (
-    <div className="flex flex-col space-y-16">
+    <div className="flex flex-col space-y-16 items-center">
       <div className="mx-5 md:mx-20 flex flex-col space-y-8">
         {props.stats && <StatisticsHeader stats={props.stats} />}
         {/* <SortHeader /> */}
         {props.filteringByTags && <TagsHeader tags={props.tags} />}
       </div>
-      {props.projects.map((repo, index) => (
-        <div key={index.toString()}>
-          <RepositoryItem {...{ ...repo, reversed: index % 2 === 0 }} />
-        </div>
-      ))}
+      <div className="max-w-screen-2xl">
+        {props.projects.map((repo, index) => (
+          <div key={index.toString()}>
+            <RepositoryItem {...{ ...repo, reversed: index % 2 === 0 }} />
+          </div>
+        ))}
+      </div>
     </div>
   );
 }
