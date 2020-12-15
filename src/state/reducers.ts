@@ -11,6 +11,7 @@ import {
   CHANGE_SORT,
   Project,
   Mabe,
+  CHANGE_THEME,
 } from "./types";
 
 const initialState: WebState = {
@@ -20,6 +21,7 @@ const initialState: WebState = {
   error: false,
   filteringByTags: false,
   tagsSelected: [],
+  darkMode: true,
 };
 
 export function reducer(
@@ -51,6 +53,11 @@ export function reducer(
       return Object.assign({}, prevState, {
         sort: action.sort,
         projects: sortProjects(prevState.projects, action.sort),
+      });
+
+    case CHANGE_THEME:
+      return Object.assign({}, prevState, {
+        darkMode: action.darkTheme,
       });
 
     case ADD_TAG:

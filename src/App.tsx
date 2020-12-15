@@ -12,33 +12,48 @@ import NotFound from "./pages/NotFound";
 import ProjectPage from "./pages/ProjectPage";
 import ProjectsContainer from "./components/containers/ProjectsContainer";
 import { createBrowserHistory } from "history";
+import { useDispatch, useSelector } from "react-redux";
+import { Dispatch } from "redux";
+import ToggleTheme from "./components/ui/ToggleTheme";
+import { WebState } from "./state/types";
+import classNames from "classnames";
 
 function App() {
+  const isDarkMode: boolean = useSelector<WebState, boolean>(
+    (state) => state.darkMode
+  );
   const history = createBrowserHistory();
   return (
-    <div className="dark">
-      <Router>
-        <div className="dark:bg-dark bg-white min-h-screen grid-nav-content dark:text-gray-200 text-blue-dark">
-          <NavbarWithRouter />
-          <Switch>
-            <Route exact path="/" component={Home} />
-            <Route path="/projects" component={ProjectsContainer} />
-            <Route path="/about" component={About} />
-            <Route path="/project/:id" component={ProjectPage} />
-            <Route path="/404" component={NotFound} />
-            <Redirect
-              from="*"
-              push
-              to={{
-                pathname: "/404",
-                state: {
-                  urlAccessed: history.location.pathname,
-                },
-              }}
-            />
-          </Switch>
-        </div>
-      </Router>
+    <div
+      className={classNames({
+        "dark": isDarkMode,
+      })}
+    >
+      <div className=" dark:bg-dark bg-white dark:text-gray-200 text-blue-dark">
+        <ToggleTheme />
+        <Router>
+          <div className=" min-h-screen grid-nav-content">
+            <NavbarWithRouter />
+            <Switch>
+              <Route exact path="/" component={Home} />
+              <Route path="/projects" component={ProjectsContainer} />
+              <Route path="/about" component={About} />
+              <Route path="/project/:id" component={ProjectPage} />
+              <Route path="/404" component={NotFound} />
+              <Redirect
+                from="*"
+                push
+                to={{
+                  pathname: "/404",
+                  state: {
+                    urlAccessed: history.location.pathname,
+                  },
+                }}
+              />
+            </Switch>
+          </div>
+        </Router>
+      </div>
     </div>
   );
 }

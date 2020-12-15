@@ -16,7 +16,7 @@ function Tag(props: Props) {
   const tagsDispatch = useDispatch<Dispatch<TagsActionTypes>>();
 
   const classnames = classNames({
-    "mx-1 py-1 px-2 cursor-pointer rounded-lg inline-block font-medium": true,
+    "mx-1 py-1 px-2 cursor-pointer rounded-lg inline-block font-medium my-1": true,
     "bg-gray-100 dark:bg-dark-darker": !isSelected,
     "bg-gradient dark:bg-dark-lighter text-white": isSelected,
   });

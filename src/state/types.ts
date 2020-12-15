@@ -55,6 +55,8 @@ export interface WebState {
 
   filteringByTags: boolean;
   tagsSelected: string[];
+
+  darkMode: boolean;
 }
 
 // Projects Actions
@@ -108,4 +110,16 @@ interface RemoveFiltering {
 
 export type TagsActionTypes = AddTag | RemoveTag | RemoveFiltering;
 
-export type ActionTypes = TagsActionTypes | ProjectsActionTypes;
+// Dark/Light Theme
+export const CHANGE_THEME = "CHANGE_THEME";
+interface ChangeTheme {
+  type: typeof CHANGE_THEME;
+  darkTheme: boolean;
+}
+
+export type AppActionTypes = ChangeTheme;
+
+export type ActionTypes =
+  | TagsActionTypes
+  | ProjectsActionTypes
+  | AppActionTypes;

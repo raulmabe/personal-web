@@ -18,7 +18,7 @@ function MobileMock(props: Props) {
       <div className="absolute rounded-full bg-gradient w-80 h-80 lg:w-96 lg:h-96 " />
       <div
         className={classNames({
-          "relative self-center rounded-4xl max-w-screen-sm my-10 sm:my-0 mx-10 overflow-hidden border-4 border-gray-700  shadow": true,
+          "relative self-center rounded-4xl max-w-screen-sm my-10 sm:my-0 mx-10 overflow-hidden border-4 dark:border-gray-700 border-gray-200  shadow": true,
           "w-1/2 sm:w-1/4 md:w-2/5": props.vertical,
           "h-auto md:my-0 min-w-full sm:min-w-0": !props.vertical,
         })}

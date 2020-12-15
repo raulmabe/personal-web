@@ -174,7 +174,7 @@ function RepositoryItem(props: Project & { reversed: boolean }) {
         )}
 
         {readmeExists && (
-          <div /* in={open} */ className="mt-3">
+          <div className="mt-3 text-left">
             <div className={open ? "" : "hidden"}>
               <Documentation readme={readme} />
             </div>

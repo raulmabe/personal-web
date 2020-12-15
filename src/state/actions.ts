@@ -11,6 +11,8 @@ import {
   Statistics,
   Sort,
   CHANGE_SORT,
+  AppActionTypes,
+  CHANGE_THEME,
 } from "./types";
 
 // Projects
@@ -62,5 +64,12 @@ export function removeTag(tag: string): TagsActionTypes {
 export function removeFilter(): TagsActionTypes {
   return {
     type: REMOVE_FILTERING,
+  };
+}
+
+export function changeTheme(darkMode: boolean): AppActionTypes {
+  return {
+    type: CHANGE_THEME,
+    darkTheme: darkMode,
   };
 }
