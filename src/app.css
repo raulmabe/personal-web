@@ -69,4 +69,14 @@
   .btn-primary {
     @apply bg-gradient text-white;
   }
+
+
+  .readme-box  img {
+    @apply inline-block
+  }
+
+  .readme-box  pre {
+    @apply p-1 px-3 my-3 bg-dark-lighter rounded-md
+  }
+
 }

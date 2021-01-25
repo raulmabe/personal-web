@@ -3,8 +3,8 @@ import RepositoryItem from "../RepositoryItem";
 import { Props } from "../containers/RepositoryListContainer";
 import TagsHeader from "../TagsHeader";
 import StatisticsHeader from "../Statistics";
-import OrderingHeader from "../SortHeader";
-import SortHeader from "../SortHeader";
+/* import OrderingHeader from "../SortHeader";
+import SortHeader from "../SortHeader"; */
 
 function RepositoryList(props: Props) {
   return (
