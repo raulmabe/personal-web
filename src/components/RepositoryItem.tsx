@@ -89,7 +89,7 @@ function RepositoryItem(props: Project & { reversed: boolean }) {
         </h3>
         <div className=" border-4 border-primary-blue w-1/4 my-4 rounded-full" />
 
-        <div className="mb-6 flex flex-row items-center">
+        <div className="mb-2 flex flex-row items-center">
           <h1 className="inline">{mabe == null ? name : mabe.title} </h1>
           <div className="flex flex-grow">
             {isForWeb && <FaGlobe className="text-3xl inline-block ml-2" />}
@@ -136,7 +136,7 @@ function RepositoryItem(props: Project & { reversed: boolean }) {
                 aria-expanded={open}
                 className="btn btn-outline"
               >
-                {open ? "See less" : "See more"}
+                {open ? "Close README.md" : "See README.md"}
               </a>
             </div>
           )}

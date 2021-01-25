@@ -5,15 +5,11 @@ function Documentation({ readme }) {
   if (!readme) return null;
   var markdown = marked(readme);
 
-  // Quitar el primer h1
-  var string = `<h2 id="motivation">`;
-  var index = markdown.indexOf(string); // Gets the first index where a space occours
-  var finalHTML = markdown.substr(index - 1);
 
   return (
     <div
-      className="readme-box"
-      dangerouslySetInnerHTML={{ __html: finalHTML }}
+      className="dark:bg-dark-darker bg-gray-100 rounded-3xl  px-5 md:px-10 py-5"
+      dangerouslySetInnerHTML={{ __html: markdown }}
     ></div>
   );
 }
