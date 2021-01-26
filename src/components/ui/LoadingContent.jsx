@@ -1,9 +1,9 @@
 import React from "react";
 
 const LoadingContent = () => (
-  <div className="flex flex-col space-y-10 items-center">
+  <div className="flex flex-col space-y-10 items-center mx-10 md:mx-20">
     {/* STATISTICS */}
-    <div className="h-40 bg-gray-600 w-full max-w-screen-2xl animate-pulse rounded-xl mx-10 md:mx-20"></div>
+    <div className="h-40 bg-gray-600 w-full max-w-screen-2xl animate-pulse rounded-xl"></div>
 
     {/* REPO */}
     <div className="flex flex-col w-full md:flex-row justify-center items-stretch md:items-start  pb-20 max-w-screen-2xl">

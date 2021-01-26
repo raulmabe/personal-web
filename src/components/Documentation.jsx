@@ -8,7 +8,7 @@ function Documentation({ readme }) {
 
   return (
     <div
-      className="dark:bg-dark-darker bg-gray-100 rounded-3xl  px-5 md:px-10 py-5 readme-box"
+      className="dark:bg-dark-darker bg-gray-100 rounded-3xl  px-5 md:px-10 py-5 shadow-inner readme-box"
       dangerouslySetInnerHTML={{ __html: markdown }}
     ></div>
   );
