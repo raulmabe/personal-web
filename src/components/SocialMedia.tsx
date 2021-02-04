@@ -6,7 +6,7 @@ function SocialMedia() {
     <div className="flex flex-row justify-center space-x-2">
       <a
         rel="noopener noreferrer"
-        href="https://github.com/Rahuvich"
+        href="https://github.com/raulmabe"
         target="_blank"
       >
         <FaGithubAlt className="text-3xl md:text-4xl" />

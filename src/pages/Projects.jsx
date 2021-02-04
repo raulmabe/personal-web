@@ -18,7 +18,7 @@ class Projects extends React.Component {
             <p className="mb-0">
               Meanwhile you can take a look at{" "}
               <a
-                href="https://github.com/Rahuvich"
+                href="https://github.com/raulmabe"
                 rel="noopener noreferrer"
                 target="_blank"
                 className="text-primary-blue px-0"
