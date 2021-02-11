@@ -80,7 +80,7 @@ function RepositoryItem(props: Project & { reversed: boolean }) {
   return (
     <div className="flex flex-row justify-center items-center my-5 md:my-10">
       <div
-        className={`flex flex-col px-10  md:w-3/4  ${
+        className={`flex flex-col px-4 md:px-10  md:w-3/4  ${
           !reversed ? "items-end text-right" : "items-start"
         }`}
       >

@@ -12,11 +12,16 @@ function StatisticsHeader(props: Props) {
         <span className="uppercase dark:text-gray-400 dark:font-normal font-semibold">
           Lately using
         </span>
-        {props.stats.lately.map((language) => (
-          <div className="mx-2 inline-block">
-            <LanguageItem key={language.name} lang={language} />
-          </div>
-        ))}
+        {props.stats.lately.map((language) =>
+          language !== null ? (
+            <div className="mx-2 inline-block">
+              {/* <pre>{JSON.stringify(language, null, 2)}</pre> */}
+              <LanguageItem key={language.name} lang={language} />
+            </div>
+          ) : (
+            <></>
+          )
+        )}
       </div>
       <div>
         <span className="uppercase dark:text-gray-400 dark:font-normal font-semibold">
